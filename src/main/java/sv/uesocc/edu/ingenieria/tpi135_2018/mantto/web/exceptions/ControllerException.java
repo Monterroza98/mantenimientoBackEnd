@@ -7,7 +7,7 @@ package sv.uesocc.edu.ingenieria.tpi135_2018.mantto.web.exceptions;
 
 /**
  *
- * @author danm
+ * @author monzon
  */
 public class ControllerException extends RuntimeException {
 

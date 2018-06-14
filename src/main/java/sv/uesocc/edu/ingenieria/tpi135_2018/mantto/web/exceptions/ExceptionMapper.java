@@ -12,7 +12,7 @@ import javax.ws.rs.ext.Provider;
 
 /**
  *
- * @author danm
+ * @author monzon
  */
 @Provider
 public class ExceptionMapper implements javax.ws.rs.ext.ExceptionMapper<Throwable> {

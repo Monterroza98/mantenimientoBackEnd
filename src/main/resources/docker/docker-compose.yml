@@ -20,4 +20,4 @@ services:
     depends_on:
       - dbpostgres
 volumes:
-  vol-debpostgres:
+  vol-dbpostgres:

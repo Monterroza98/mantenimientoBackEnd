@@ -13,7 +13,7 @@ import javax.ws.rs.ext.Provider;
 
 /**
  *
- * @author danm
+ * @author monzon
  */
 @Provider
 public class NotFoundMapper implements javax.ws.rs.ext.ExceptionMapper<NotFoundException> {
