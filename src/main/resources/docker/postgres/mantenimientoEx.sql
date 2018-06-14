@@ -1,18 +1,19 @@
+<<<<<<< HEAD
+=======
 --
 -- PostgreSQL database dump
 --
 
 -- Dumped from database version 9.6.3
--- Dumped by pg_dump version 9.6.9
+-- Dumped by pg_dump version 9.6.7
 
--- Started on 2018-06-14 21:06:20 UTC
+-- Started on 2018-06-08 21:52:41 CST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
 SET client_min_messages = warning;
 SET row_security = off;
@@ -34,16 +35,18 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
+SET search_path = public, pg_catalog;
+
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- TOC entry 185 (class 1259 OID 32770)
+-- TOC entry 185 (class 1259 OID 16387)
 -- Name: calendario; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.calendario (
+CREATE TABLE calendario (
     id_fecha integer NOT NULL,
     fecha date,
     descripcion text,
@@ -51,14 +54,14 @@ CREATE TABLE public.calendario (
 );
 
 
-ALTER TABLE public.calendario OWNER TO mortal2018;
+ALTER TABLE calendario OWNER TO mortal2018;
 
 --
--- TOC entry 186 (class 1259 OID 32776)
+-- TOC entry 186 (class 1259 OID 16393)
 -- Name: calendario_excepcion; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.calendario_excepcion (
+CREATE TABLE calendario_excepcion (
     id_excepcion integer NOT NULL,
     fecha date NOT NULL,
     estado boolean,
@@ -66,14 +69,14 @@ CREATE TABLE public.calendario_excepcion (
 );
 
 
-ALTER TABLE public.calendario_excepcion OWNER TO mortal2018;
+ALTER TABLE calendario_excepcion OWNER TO mortal2018;
 
 --
--- TOC entry 187 (class 1259 OID 32782)
+-- TOC entry 187 (class 1259 OID 16399)
 -- Name: calendario_excepcion_id_excepcion_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.calendario_excepcion_id_excepcion_seq
+CREATE SEQUENCE calendario_excepcion_id_excepcion_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -81,7 +84,7 @@ CREATE SEQUENCE public.calendario_excepcion_id_excepcion_seq
     CACHE 1;
 
 
-ALTER TABLE public.calendario_excepcion_id_excepcion_seq OWNER TO mortal2018;
+ALTER TABLE calendario_excepcion_id_excepcion_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2457 (class 0 OID 0)
@@ -89,15 +92,15 @@ ALTER TABLE public.calendario_excepcion_id_excepcion_seq OWNER TO mortal2018;
 -- Name: calendario_excepcion_id_excepcion_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.calendario_excepcion_id_excepcion_seq OWNED BY public.calendario_excepcion.id_excepcion;
+ALTER SEQUENCE calendario_excepcion_id_excepcion_seq OWNED BY calendario_excepcion.id_excepcion;
 
 
 --
--- TOC entry 188 (class 1259 OID 32784)
+-- TOC entry 188 (class 1259 OID 16401)
 -- Name: calendario_id_fecha_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.calendario_id_fecha_seq
+CREATE SEQUENCE calendario_id_fecha_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -105,7 +108,7 @@ CREATE SEQUENCE public.calendario_id_fecha_seq
     CACHE 1;
 
 
-ALTER TABLE public.calendario_id_fecha_seq OWNER TO mortal2018;
+ALTER TABLE calendario_id_fecha_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2458 (class 0 OID 0)
@@ -113,29 +116,29 @@ ALTER TABLE public.calendario_id_fecha_seq OWNER TO mortal2018;
 -- Name: calendario_id_fecha_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.calendario_id_fecha_seq OWNED BY public.calendario.id_fecha;
+ALTER SEQUENCE calendario_id_fecha_seq OWNED BY calendario.id_fecha;
 
 
 --
--- TOC entry 189 (class 1259 OID 32786)
+-- TOC entry 189 (class 1259 OID 16403)
 -- Name: diagnostico; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.diagnostico (
+CREATE TABLE diagnostico (
     id_diagnostico integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text
 );
 
 
-ALTER TABLE public.diagnostico OWNER TO mortal2018;
+ALTER TABLE diagnostico OWNER TO mortal2018;
 
 --
--- TOC entry 190 (class 1259 OID 32792)
+-- TOC entry 190 (class 1259 OID 16409)
 -- Name: diagnostico_id_diagnostico_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.diagnostico_id_diagnostico_seq
+CREATE SEQUENCE diagnostico_id_diagnostico_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -143,7 +146,7 @@ CREATE SEQUENCE public.diagnostico_id_diagnostico_seq
     CACHE 1;
 
 
-ALTER TABLE public.diagnostico_id_diagnostico_seq OWNER TO mortal2018;
+ALTER TABLE diagnostico_id_diagnostico_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2459 (class 0 OID 0)
@@ -151,29 +154,29 @@ ALTER TABLE public.diagnostico_id_diagnostico_seq OWNER TO mortal2018;
 -- Name: diagnostico_id_diagnostico_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.diagnostico_id_diagnostico_seq OWNED BY public.diagnostico.id_diagnostico;
+ALTER SEQUENCE diagnostico_id_diagnostico_seq OWNED BY diagnostico.id_diagnostico;
 
 
 --
--- TOC entry 191 (class 1259 OID 32794)
+-- TOC entry 191 (class 1259 OID 16411)
 -- Name: diagnostico_parte; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.diagnostico_parte (
+CREATE TABLE diagnostico_parte (
     id_diagnostico_parte integer NOT NULL,
     id_diagnostico integer,
     id_parte integer
 );
 
 
-ALTER TABLE public.diagnostico_parte OWNER TO mortal2018;
+ALTER TABLE diagnostico_parte OWNER TO mortal2018;
 
 --
--- TOC entry 192 (class 1259 OID 32797)
+-- TOC entry 192 (class 1259 OID 16414)
 -- Name: diagnostico_parte_id_diagnostico_parte_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.diagnostico_parte_id_diagnostico_parte_seq
+CREATE SEQUENCE diagnostico_parte_id_diagnostico_parte_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -181,7 +184,7 @@ CREATE SEQUENCE public.diagnostico_parte_id_diagnostico_parte_seq
     CACHE 1;
 
 
-ALTER TABLE public.diagnostico_parte_id_diagnostico_parte_seq OWNER TO mortal2018;
+ALTER TABLE diagnostico_parte_id_diagnostico_parte_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2460 (class 0 OID 0)
@@ -189,15 +192,15 @@ ALTER TABLE public.diagnostico_parte_id_diagnostico_parte_seq OWNER TO mortal201
 -- Name: diagnostico_parte_id_diagnostico_parte_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.diagnostico_parte_id_diagnostico_parte_seq OWNED BY public.diagnostico_parte.id_diagnostico_parte;
+ALTER SEQUENCE diagnostico_parte_id_diagnostico_parte_seq OWNED BY diagnostico_parte.id_diagnostico_parte;
 
 
 --
--- TOC entry 193 (class 1259 OID 32799)
+-- TOC entry 193 (class 1259 OID 16416)
 -- Name: equipo; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.equipo (
+CREATE TABLE equipo (
     id_equipo integer NOT NULL,
     no_inventario character varying(20) NOT NULL,
     observaciones text,
@@ -207,14 +210,14 @@ CREATE TABLE public.equipo (
 );
 
 
-ALTER TABLE public.equipo OWNER TO mortal2018;
+ALTER TABLE equipo OWNER TO mortal2018;
 
 --
--- TOC entry 194 (class 1259 OID 32805)
+-- TOC entry 194 (class 1259 OID 16422)
 -- Name: equipo_detalle; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.equipo_detalle (
+CREATE TABLE equipo_detalle (
     id_equipo integer NOT NULL,
     id_parte integer NOT NULL,
     id_equipo_detalle bigint NOT NULL,
@@ -227,14 +230,14 @@ CREATE TABLE public.equipo_detalle (
 );
 
 
-ALTER TABLE public.equipo_detalle OWNER TO mortal2018;
+ALTER TABLE equipo_detalle OWNER TO mortal2018;
 
 --
--- TOC entry 195 (class 1259 OID 32811)
+-- TOC entry 195 (class 1259 OID 16428)
 -- Name: equipo_detalle_id_equipo_detalle_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.equipo_detalle_id_equipo_detalle_seq
+CREATE SEQUENCE equipo_detalle_id_equipo_detalle_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -242,7 +245,7 @@ CREATE SEQUENCE public.equipo_detalle_id_equipo_detalle_seq
     CACHE 1;
 
 
-ALTER TABLE public.equipo_detalle_id_equipo_detalle_seq OWNER TO mortal2018;
+ALTER TABLE equipo_detalle_id_equipo_detalle_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2461 (class 0 OID 0)
@@ -250,15 +253,15 @@ ALTER TABLE public.equipo_detalle_id_equipo_detalle_seq OWNER TO mortal2018;
 -- Name: equipo_detalle_id_equipo_detalle_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.equipo_detalle_id_equipo_detalle_seq OWNED BY public.equipo_detalle.id_equipo_detalle;
+ALTER SEQUENCE equipo_detalle_id_equipo_detalle_seq OWNED BY equipo_detalle.id_equipo_detalle;
 
 
 --
--- TOC entry 196 (class 1259 OID 32813)
+-- TOC entry 196 (class 1259 OID 16430)
 -- Name: equipo_id_equipo_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.equipo_id_equipo_seq
+CREATE SEQUENCE equipo_id_equipo_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -266,7 +269,7 @@ CREATE SEQUENCE public.equipo_id_equipo_seq
     CACHE 1;
 
 
-ALTER TABLE public.equipo_id_equipo_seq OWNER TO mortal2018;
+ALTER TABLE equipo_id_equipo_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2462 (class 0 OID 0)
@@ -274,28 +277,28 @@ ALTER TABLE public.equipo_id_equipo_seq OWNER TO mortal2018;
 -- Name: equipo_id_equipo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.equipo_id_equipo_seq OWNED BY public.equipo.id_equipo;
+ALTER SEQUENCE equipo_id_equipo_seq OWNED BY equipo.id_equipo;
 
 
 --
--- TOC entry 197 (class 1259 OID 32815)
+-- TOC entry 197 (class 1259 OID 16432)
 -- Name: equipo_parte; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.equipo_parte (
+CREATE TABLE equipo_parte (
     id_equipo integer NOT NULL,
     id_parte integer NOT NULL
 );
 
 
-ALTER TABLE public.equipo_parte OWNER TO mortal2018;
+ALTER TABLE equipo_parte OWNER TO mortal2018;
 
 --
--- TOC entry 198 (class 1259 OID 32818)
+-- TOC entry 198 (class 1259 OID 16435)
 -- Name: estado; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.estado (
+CREATE TABLE estado (
     id_estado integer NOT NULL,
     nombre character varying(50) NOT NULL,
     activo boolean,
@@ -303,14 +306,14 @@ CREATE TABLE public.estado (
 );
 
 
-ALTER TABLE public.estado OWNER TO mortal2018;
+ALTER TABLE estado OWNER TO mortal2018;
 
 --
--- TOC entry 199 (class 1259 OID 32824)
+-- TOC entry 199 (class 1259 OID 16441)
 -- Name: estado_id_estado_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.estado_id_estado_seq
+CREATE SEQUENCE estado_id_estado_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -318,7 +321,7 @@ CREATE SEQUENCE public.estado_id_estado_seq
     CACHE 1;
 
 
-ALTER TABLE public.estado_id_estado_seq OWNER TO mortal2018;
+ALTER TABLE estado_id_estado_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2463 (class 0 OID 0)
@@ -326,15 +329,15 @@ ALTER TABLE public.estado_id_estado_seq OWNER TO mortal2018;
 -- Name: estado_id_estado_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.estado_id_estado_seq OWNED BY public.estado.id_estado;
+ALTER SEQUENCE estado_id_estado_seq OWNED BY estado.id_estado;
 
 
 --
--- TOC entry 200 (class 1259 OID 32826)
+-- TOC entry 200 (class 1259 OID 16443)
 -- Name: estado_mantenimiento_detalle; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.estado_mantenimiento_detalle (
+CREATE TABLE estado_mantenimiento_detalle (
     id_estado_mantenimiento_detalle integer NOT NULL,
     id_mantenimiento_detalle integer,
     id_estado integer,
@@ -343,14 +346,14 @@ CREATE TABLE public.estado_mantenimiento_detalle (
 );
 
 
-ALTER TABLE public.estado_mantenimiento_detalle OWNER TO mortal2018;
+ALTER TABLE estado_mantenimiento_detalle OWNER TO mortal2018;
 
 --
--- TOC entry 201 (class 1259 OID 32829)
+-- TOC entry 201 (class 1259 OID 16446)
 -- Name: estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq
+CREATE SEQUENCE estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -358,7 +361,7 @@ CREATE SEQUENCE public.estado_mantenimiento_detalle_id_estado_mantenimiento_deta
     CACHE 1;
 
 
-ALTER TABLE public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq OWNER TO mortal2018;
+ALTER TABLE estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2464 (class 0 OID 0)
@@ -366,29 +369,29 @@ ALTER TABLE public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_s
 -- Name: estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq OWNED BY public.estado_mantenimiento_detalle.id_estado_mantenimiento_detalle;
+ALTER SEQUENCE estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq OWNED BY estado_mantenimiento_detalle.id_estado_mantenimiento_detalle;
 
 
 --
--- TOC entry 202 (class 1259 OID 32831)
+-- TOC entry 202 (class 1259 OID 16448)
 -- Name: mantenimiento_detalle; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.mantenimiento_detalle (
+CREATE TABLE mantenimiento_detalle (
     id_mantenimiento_detalle bigint NOT NULL,
     id_equipo_detalle integer,
     id_oden_trabajo integer
 );
 
 
-ALTER TABLE public.mantenimiento_detalle OWNER TO mortal2018;
+ALTER TABLE mantenimiento_detalle OWNER TO mortal2018;
 
 --
--- TOC entry 203 (class 1259 OID 32834)
+-- TOC entry 203 (class 1259 OID 16451)
 -- Name: mantenimiento_detalle_id_mantenimiento_detalle_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.mantenimiento_detalle_id_mantenimiento_detalle_seq
+CREATE SEQUENCE mantenimiento_detalle_id_mantenimiento_detalle_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -396,7 +399,7 @@ CREATE SEQUENCE public.mantenimiento_detalle_id_mantenimiento_detalle_seq
     CACHE 1;
 
 
-ALTER TABLE public.mantenimiento_detalle_id_mantenimiento_detalle_seq OWNER TO mortal2018;
+ALTER TABLE mantenimiento_detalle_id_mantenimiento_detalle_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2465 (class 0 OID 0)
@@ -404,15 +407,15 @@ ALTER TABLE public.mantenimiento_detalle_id_mantenimiento_detalle_seq OWNER TO m
 -- Name: mantenimiento_detalle_id_mantenimiento_detalle_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.mantenimiento_detalle_id_mantenimiento_detalle_seq OWNED BY public.mantenimiento_detalle.id_mantenimiento_detalle;
+ALTER SEQUENCE mantenimiento_detalle_id_mantenimiento_detalle_seq OWNED BY mantenimiento_detalle.id_mantenimiento_detalle;
 
 
 --
--- TOC entry 204 (class 1259 OID 32836)
+-- TOC entry 204 (class 1259 OID 16453)
 -- Name: marca; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.marca (
+CREATE TABLE marca (
     id_marca integer NOT NULL,
     nombre character varying(50),
     activo boolean,
@@ -420,14 +423,14 @@ CREATE TABLE public.marca (
 );
 
 
-ALTER TABLE public.marca OWNER TO mortal2018;
+ALTER TABLE marca OWNER TO mortal2018;
 
 --
--- TOC entry 205 (class 1259 OID 32842)
+-- TOC entry 205 (class 1259 OID 16459)
 -- Name: marca_id_marca_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.marca_id_marca_seq
+CREATE SEQUENCE marca_id_marca_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -435,7 +438,7 @@ CREATE SEQUENCE public.marca_id_marca_seq
     CACHE 1;
 
 
-ALTER TABLE public.marca_id_marca_seq OWNER TO mortal2018;
+ALTER TABLE marca_id_marca_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2466 (class 0 OID 0)
@@ -443,15 +446,15 @@ ALTER TABLE public.marca_id_marca_seq OWNER TO mortal2018;
 -- Name: marca_id_marca_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.marca_id_marca_seq OWNED BY public.marca.id_marca;
+ALTER SEQUENCE marca_id_marca_seq OWNED BY marca.id_marca;
 
 
 --
--- TOC entry 206 (class 1259 OID 32844)
+-- TOC entry 206 (class 1259 OID 16461)
 -- Name: modelo; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.modelo (
+CREATE TABLE modelo (
     id_modelo integer NOT NULL,
     nombre character varying(50) NOT NULL,
     activo boolean,
@@ -459,14 +462,14 @@ CREATE TABLE public.modelo (
 );
 
 
-ALTER TABLE public.modelo OWNER TO mortal2018;
+ALTER TABLE modelo OWNER TO mortal2018;
 
 --
--- TOC entry 207 (class 1259 OID 32850)
+-- TOC entry 207 (class 1259 OID 16467)
 -- Name: modelo_id_modelo_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.modelo_id_modelo_seq
+CREATE SEQUENCE modelo_id_modelo_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -474,7 +477,7 @@ CREATE SEQUENCE public.modelo_id_modelo_seq
     CACHE 1;
 
 
-ALTER TABLE public.modelo_id_modelo_seq OWNER TO mortal2018;
+ALTER TABLE modelo_id_modelo_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2467 (class 0 OID 0)
@@ -482,16 +485,16 @@ ALTER TABLE public.modelo_id_modelo_seq OWNER TO mortal2018;
 -- Name: modelo_id_modelo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.modelo_id_modelo_seq OWNED BY public.modelo.id_modelo;
+ALTER SEQUENCE modelo_id_modelo_seq OWNED BY modelo.id_modelo;
 
 
 --
--- TOC entry 208 (class 1259 OID 32852)
+-- TOC entry 208 (class 1259 OID 16469)
 -- Name: orden; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.orden (
-    id_orden integer NOT NULL,
+CREATE TABLE orden (
+    id_orden bigint NOT NULL,
     fecha date,
     observaciones text,
     activo boolean,
@@ -500,28 +503,28 @@ CREATE TABLE public.orden (
 );
 
 
-ALTER TABLE public.orden OWNER TO mortal2018;
+ALTER TABLE orden OWNER TO mortal2018;
 
 --
--- TOC entry 209 (class 1259 OID 32858)
+-- TOC entry 209 (class 1259 OID 16475)
 -- Name: orden_calendario; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.orden_calendario (
+CREATE TABLE orden_calendario (
     id_orden_calendario integer NOT NULL,
     id_fecha integer,
     id_orden integer
 );
 
 
-ALTER TABLE public.orden_calendario OWNER TO mortal2018;
+ALTER TABLE orden_calendario OWNER TO mortal2018;
 
 --
--- TOC entry 210 (class 1259 OID 32861)
+-- TOC entry 210 (class 1259 OID 16478)
 -- Name: orden_calendario_id_orden_calendario_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.orden_calendario_id_orden_calendario_seq
+CREATE SEQUENCE orden_calendario_id_orden_calendario_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -529,7 +532,7 @@ CREATE SEQUENCE public.orden_calendario_id_orden_calendario_seq
     CACHE 1;
 
 
-ALTER TABLE public.orden_calendario_id_orden_calendario_seq OWNER TO mortal2018;
+ALTER TABLE orden_calendario_id_orden_calendario_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2468 (class 0 OID 0)
@@ -537,15 +540,15 @@ ALTER TABLE public.orden_calendario_id_orden_calendario_seq OWNER TO mortal2018;
 -- Name: orden_calendario_id_orden_calendario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.orden_calendario_id_orden_calendario_seq OWNED BY public.orden_calendario.id_orden_calendario;
+ALTER SEQUENCE orden_calendario_id_orden_calendario_seq OWNED BY orden_calendario.id_orden_calendario;
 
 
 --
--- TOC entry 211 (class 1259 OID 32863)
+-- TOC entry 211 (class 1259 OID 16480)
 -- Name: orden_id_orden_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.orden_id_orden_seq
+CREATE SEQUENCE orden_id_orden_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -553,7 +556,7 @@ CREATE SEQUENCE public.orden_id_orden_seq
     CACHE 1;
 
 
-ALTER TABLE public.orden_id_orden_seq OWNER TO mortal2018;
+ALTER TABLE orden_id_orden_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2469 (class 0 OID 0)
@@ -561,15 +564,15 @@ ALTER TABLE public.orden_id_orden_seq OWNER TO mortal2018;
 -- Name: orden_id_orden_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.orden_id_orden_seq OWNED BY public.orden.id_orden;
+ALTER SEQUENCE orden_id_orden_seq OWNED BY orden.id_orden;
 
 
 --
--- TOC entry 212 (class 1259 OID 32865)
+-- TOC entry 212 (class 1259 OID 16482)
 -- Name: orden_trabajo_equipo; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.orden_trabajo_equipo (
+CREATE TABLE orden_trabajo_equipo (
     id_orden_trabajo integer NOT NULL,
     fecha_inicio date,
     fecha_estimada date,
@@ -580,14 +583,14 @@ CREATE TABLE public.orden_trabajo_equipo (
 );
 
 
-ALTER TABLE public.orden_trabajo_equipo OWNER TO mortal2018;
+ALTER TABLE orden_trabajo_equipo OWNER TO mortal2018;
 
 --
--- TOC entry 213 (class 1259 OID 32868)
+-- TOC entry 213 (class 1259 OID 16485)
 -- Name: orden_trabajo_equipo_detalle; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.orden_trabajo_equipo_detalle (
+CREATE TABLE orden_trabajo_equipo_detalle (
     id_orden_trabajo_equipo_detalle integer NOT NULL,
     id_orden_trabajo integer,
     id_equipo integer,
@@ -597,14 +600,14 @@ CREATE TABLE public.orden_trabajo_equipo_detalle (
 );
 
 
-ALTER TABLE public.orden_trabajo_equipo_detalle OWNER TO mortal2018;
+ALTER TABLE orden_trabajo_equipo_detalle OWNER TO mortal2018;
 
 --
--- TOC entry 214 (class 1259 OID 32871)
+-- TOC entry 214 (class 1259 OID 16488)
 -- Name: orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq
+CREATE SEQUENCE orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -612,7 +615,7 @@ CREATE SEQUENCE public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_deta
     CACHE 1;
 
 
-ALTER TABLE public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq OWNER TO mortal2018;
+ALTER TABLE orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2470 (class 0 OID 0)
@@ -620,15 +623,15 @@ ALTER TABLE public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_s
 -- Name: orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq OWNED BY public.orden_trabajo_equipo_detalle.id_orden_trabajo_equipo_detalle;
+ALTER SEQUENCE orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq OWNED BY orden_trabajo_equipo_detalle.id_orden_trabajo_equipo_detalle;
 
 
 --
--- TOC entry 215 (class 1259 OID 32873)
+-- TOC entry 215 (class 1259 OID 16490)
 -- Name: orden_trabajo_equipo_id_orden_trabajo_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.orden_trabajo_equipo_id_orden_trabajo_seq
+CREATE SEQUENCE orden_trabajo_equipo_id_orden_trabajo_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -636,7 +639,7 @@ CREATE SEQUENCE public.orden_trabajo_equipo_id_orden_trabajo_seq
     CACHE 1;
 
 
-ALTER TABLE public.orden_trabajo_equipo_id_orden_trabajo_seq OWNER TO mortal2018;
+ALTER TABLE orden_trabajo_equipo_id_orden_trabajo_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2471 (class 0 OID 0)
@@ -644,15 +647,15 @@ ALTER TABLE public.orden_trabajo_equipo_id_orden_trabajo_seq OWNER TO mortal2018
 -- Name: orden_trabajo_equipo_id_orden_trabajo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.orden_trabajo_equipo_id_orden_trabajo_seq OWNED BY public.orden_trabajo_equipo.id_orden_trabajo;
+ALTER SEQUENCE orden_trabajo_equipo_id_orden_trabajo_seq OWNED BY orden_trabajo_equipo.id_orden_trabajo;
 
 
 --
--- TOC entry 216 (class 1259 OID 32875)
+-- TOC entry 216 (class 1259 OID 16492)
 -- Name: parte; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.parte (
+CREATE TABLE parte (
     id_parte integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text,
@@ -660,14 +663,14 @@ CREATE TABLE public.parte (
 );
 
 
-ALTER TABLE public.parte OWNER TO mortal2018;
+ALTER TABLE parte OWNER TO mortal2018;
 
 --
--- TOC entry 217 (class 1259 OID 32881)
+-- TOC entry 217 (class 1259 OID 16498)
 -- Name: parte_id_parte_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.parte_id_parte_seq
+CREATE SEQUENCE parte_id_parte_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -675,7 +678,7 @@ CREATE SEQUENCE public.parte_id_parte_seq
     CACHE 1;
 
 
-ALTER TABLE public.parte_id_parte_seq OWNER TO mortal2018;
+ALTER TABLE parte_id_parte_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2472 (class 0 OID 0)
@@ -683,15 +686,15 @@ ALTER TABLE public.parte_id_parte_seq OWNER TO mortal2018;
 -- Name: parte_id_parte_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.parte_id_parte_seq OWNED BY public.parte.id_parte;
+ALTER SEQUENCE parte_id_parte_seq OWNED BY parte.id_parte;
 
 
 --
--- TOC entry 218 (class 1259 OID 32883)
+-- TOC entry 218 (class 1259 OID 16500)
 -- Name: paso; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.paso (
+CREATE TABLE paso (
     id_paso integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text,
@@ -699,14 +702,14 @@ CREATE TABLE public.paso (
 );
 
 
-ALTER TABLE public.paso OWNER TO mortal2018;
+ALTER TABLE paso OWNER TO mortal2018;
 
 --
--- TOC entry 219 (class 1259 OID 32889)
+-- TOC entry 219 (class 1259 OID 16506)
 -- Name: paso_id_paso_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.paso_id_paso_seq
+CREATE SEQUENCE paso_id_paso_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -714,7 +717,7 @@ CREATE SEQUENCE public.paso_id_paso_seq
     CACHE 1;
 
 
-ALTER TABLE public.paso_id_paso_seq OWNER TO mortal2018;
+ALTER TABLE paso_id_paso_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2473 (class 0 OID 0)
@@ -722,15 +725,15 @@ ALTER TABLE public.paso_id_paso_seq OWNER TO mortal2018;
 -- Name: paso_id_paso_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.paso_id_paso_seq OWNED BY public.paso.id_paso;
+ALTER SEQUENCE paso_id_paso_seq OWNED BY paso.id_paso;
 
 
 --
--- TOC entry 220 (class 1259 OID 32891)
+-- TOC entry 220 (class 1259 OID 16508)
 -- Name: prioridad; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.prioridad (
+CREATE TABLE prioridad (
     id_prioridad integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text,
@@ -738,14 +741,14 @@ CREATE TABLE public.prioridad (
 );
 
 
-ALTER TABLE public.prioridad OWNER TO mortal2018;
+ALTER TABLE prioridad OWNER TO mortal2018;
 
 --
--- TOC entry 221 (class 1259 OID 32897)
+-- TOC entry 221 (class 1259 OID 16514)
 -- Name: prioridad_id_prioridad_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.prioridad_id_prioridad_seq
+CREATE SEQUENCE prioridad_id_prioridad_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -753,7 +756,7 @@ CREATE SEQUENCE public.prioridad_id_prioridad_seq
     CACHE 1;
 
 
-ALTER TABLE public.prioridad_id_prioridad_seq OWNER TO mortal2018;
+ALTER TABLE prioridad_id_prioridad_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2474 (class 0 OID 0)
@@ -761,15 +764,15 @@ ALTER TABLE public.prioridad_id_prioridad_seq OWNER TO mortal2018;
 -- Name: prioridad_id_prioridad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.prioridad_id_prioridad_seq OWNED BY public.prioridad.id_prioridad;
+ALTER SEQUENCE prioridad_id_prioridad_seq OWNED BY prioridad.id_prioridad;
 
 
 --
--- TOC entry 222 (class 1259 OID 32899)
+-- TOC entry 222 (class 1259 OID 16516)
 -- Name: procedimiento; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.procedimiento (
+CREATE TABLE procedimiento (
     id_procedimiento integer NOT NULL,
     nombre character varying(50) NOT NULL,
     activo boolean,
@@ -778,14 +781,14 @@ CREATE TABLE public.procedimiento (
 );
 
 
-ALTER TABLE public.procedimiento OWNER TO mortal2018;
+ALTER TABLE procedimiento OWNER TO mortal2018;
 
 --
--- TOC entry 223 (class 1259 OID 32905)
+-- TOC entry 223 (class 1259 OID 16522)
 -- Name: procedimiento_id_procedimiento_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.procedimiento_id_procedimiento_seq
+CREATE SEQUENCE procedimiento_id_procedimiento_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -793,7 +796,7 @@ CREATE SEQUENCE public.procedimiento_id_procedimiento_seq
     CACHE 1;
 
 
-ALTER TABLE public.procedimiento_id_procedimiento_seq OWNER TO mortal2018;
+ALTER TABLE procedimiento_id_procedimiento_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2475 (class 0 OID 0)
@@ -801,15 +804,15 @@ ALTER TABLE public.procedimiento_id_procedimiento_seq OWNER TO mortal2018;
 -- Name: procedimiento_id_procedimiento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.procedimiento_id_procedimiento_seq OWNED BY public.procedimiento.id_procedimiento;
+ALTER SEQUENCE procedimiento_id_procedimiento_seq OWNED BY procedimiento.id_procedimiento;
 
 
 --
--- TOC entry 224 (class 1259 OID 32907)
+-- TOC entry 224 (class 1259 OID 16524)
 -- Name: responsable; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.responsable (
+CREATE TABLE responsable (
     id_responsable integer NOT NULL,
     nombre character varying(50),
     activo boolean,
@@ -818,14 +821,14 @@ CREATE TABLE public.responsable (
 );
 
 
-ALTER TABLE public.responsable OWNER TO mortal2018;
+ALTER TABLE responsable OWNER TO mortal2018;
 
 --
--- TOC entry 225 (class 1259 OID 32913)
+-- TOC entry 225 (class 1259 OID 16530)
 -- Name: responsable_id_responsable_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.responsable_id_responsable_seq
+CREATE SEQUENCE responsable_id_responsable_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -833,7 +836,7 @@ CREATE SEQUENCE public.responsable_id_responsable_seq
     CACHE 1;
 
 
-ALTER TABLE public.responsable_id_responsable_seq OWNER TO mortal2018;
+ALTER TABLE responsable_id_responsable_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2476 (class 0 OID 0)
@@ -841,30 +844,35 @@ ALTER TABLE public.responsable_id_responsable_seq OWNER TO mortal2018;
 -- Name: responsable_id_responsable_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.responsable_id_responsable_seq OWNED BY public.responsable.id_responsable;
+ALTER SEQUENCE responsable_id_responsable_seq OWNED BY responsable.id_responsable;
 
 
 --
--- TOC entry 226 (class 1259 OID 32915)
+-- TOC entry 226 (class 1259 OID 16532)
 -- Name: solicitud; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.solicitud (
+CREATE TABLE solicitud (
     id_solicitud integer NOT NULL,
     solicitante character varying(255),
     fecha_solicitud date,
-    activo boolean
+    activo boolean,
+    correlativo character varying(50),
+    descripcion_equipo text,
+    descripcion_falla text,
+    observaciones text,
+    id_unidad integer
 );
 
 
-ALTER TABLE public.solicitud OWNER TO mortal2018;
+ALTER TABLE solicitud OWNER TO mortal2018;
 
 --
--- TOC entry 227 (class 1259 OID 32918)
+-- TOC entry 227 (class 1259 OID 16535)
 -- Name: solicitud_id_solicitud_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.solicitud_id_solicitud_seq
+CREATE SEQUENCE solicitud_id_solicitud_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -872,7 +880,7 @@ CREATE SEQUENCE public.solicitud_id_solicitud_seq
     CACHE 1;
 
 
-ALTER TABLE public.solicitud_id_solicitud_seq OWNER TO mortal2018;
+ALTER TABLE solicitud_id_solicitud_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2477 (class 0 OID 0)
@@ -880,29 +888,29 @@ ALTER TABLE public.solicitud_id_solicitud_seq OWNER TO mortal2018;
 -- Name: solicitud_id_solicitud_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.solicitud_id_solicitud_seq OWNED BY public.solicitud.id_solicitud;
+ALTER SEQUENCE solicitud_id_solicitud_seq OWNED BY solicitud.id_solicitud;
 
 
 --
--- TOC entry 228 (class 1259 OID 32920)
+-- TOC entry 228 (class 1259 OID 16537)
 -- Name: sub_tipo_mantenimiento; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.sub_tipo_mantenimiento (
+CREATE TABLE sub_tipo_mantenimiento (
     id_sub_tipo_mantenimiento integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text
 );
 
 
-ALTER TABLE public.sub_tipo_mantenimiento OWNER TO mortal2018;
+ALTER TABLE sub_tipo_mantenimiento OWNER TO mortal2018;
 
 --
--- TOC entry 229 (class 1259 OID 32926)
+-- TOC entry 229 (class 1259 OID 16543)
 -- Name: sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq
+CREATE SEQUENCE sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -910,7 +918,7 @@ CREATE SEQUENCE public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq
     CACHE 1;
 
 
-ALTER TABLE public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq OWNER TO mortal2018;
+ALTER TABLE sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2478 (class 0 OID 0)
@@ -918,15 +926,15 @@ ALTER TABLE public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq OWNER TO
 -- Name: sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq OWNED BY public.sub_tipo_mantenimiento.id_sub_tipo_mantenimiento;
+ALTER SEQUENCE sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq OWNED BY sub_tipo_mantenimiento.id_sub_tipo_mantenimiento;
 
 
 --
--- TOC entry 230 (class 1259 OID 32928)
+-- TOC entry 230 (class 1259 OID 16545)
 -- Name: tipo_mantenimiento; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.tipo_mantenimiento (
+CREATE TABLE tipo_mantenimiento (
     id_tipo_mantenimiento integer NOT NULL,
     nombre character varying(60) NOT NULL,
     descipcion text,
@@ -935,14 +943,14 @@ CREATE TABLE public.tipo_mantenimiento (
 );
 
 
-ALTER TABLE public.tipo_mantenimiento OWNER TO mortal2018;
+ALTER TABLE tipo_mantenimiento OWNER TO mortal2018;
 
 --
--- TOC entry 231 (class 1259 OID 32934)
+-- TOC entry 231 (class 1259 OID 16551)
 -- Name: tipo_mantenimiento_id_tipo_mantenimiento_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.tipo_mantenimiento_id_tipo_mantenimiento_seq
+CREATE SEQUENCE tipo_mantenimiento_id_tipo_mantenimiento_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -950,7 +958,7 @@ CREATE SEQUENCE public.tipo_mantenimiento_id_tipo_mantenimiento_seq
     CACHE 1;
 
 
-ALTER TABLE public.tipo_mantenimiento_id_tipo_mantenimiento_seq OWNER TO mortal2018;
+ALTER TABLE tipo_mantenimiento_id_tipo_mantenimiento_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2479 (class 0 OID 0)
@@ -958,29 +966,29 @@ ALTER TABLE public.tipo_mantenimiento_id_tipo_mantenimiento_seq OWNER TO mortal2
 -- Name: tipo_mantenimiento_id_tipo_mantenimiento_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.tipo_mantenimiento_id_tipo_mantenimiento_seq OWNED BY public.tipo_mantenimiento.id_tipo_mantenimiento;
+ALTER SEQUENCE tipo_mantenimiento_id_tipo_mantenimiento_seq OWNED BY tipo_mantenimiento.id_tipo_mantenimiento;
 
 
 --
--- TOC entry 232 (class 1259 OID 32936)
+-- TOC entry 232 (class 1259 OID 16553)
 -- Name: tipo_parte; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.tipo_parte (
+CREATE TABLE tipo_parte (
     id_tipo_parte integer NOT NULL,
     nombre character varying(50) NOT NULL,
     descripcion text
 );
 
 
-ALTER TABLE public.tipo_parte OWNER TO mortal2018;
+ALTER TABLE tipo_parte OWNER TO mortal2018;
 
 --
--- TOC entry 233 (class 1259 OID 32942)
+-- TOC entry 233 (class 1259 OID 16559)
 -- Name: tipo_parte_id_tipo_parte_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.tipo_parte_id_tipo_parte_seq
+CREATE SEQUENCE tipo_parte_id_tipo_parte_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -988,7 +996,7 @@ CREATE SEQUENCE public.tipo_parte_id_tipo_parte_seq
     CACHE 1;
 
 
-ALTER TABLE public.tipo_parte_id_tipo_parte_seq OWNER TO mortal2018;
+ALTER TABLE tipo_parte_id_tipo_parte_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2480 (class 0 OID 0)
@@ -996,29 +1004,29 @@ ALTER TABLE public.tipo_parte_id_tipo_parte_seq OWNER TO mortal2018;
 -- Name: tipo_parte_id_tipo_parte_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.tipo_parte_id_tipo_parte_seq OWNED BY public.tipo_parte.id_tipo_parte;
+ALTER SEQUENCE tipo_parte_id_tipo_parte_seq OWNED BY tipo_parte.id_tipo_parte;
 
 
 --
--- TOC entry 234 (class 1259 OID 32944)
+-- TOC entry 234 (class 1259 OID 16561)
 -- Name: tipo_responsable; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.tipo_responsable (
+CREATE TABLE tipo_responsable (
     id_tipo_responsable integer NOT NULL,
     nombre character varying(50),
     descripciont text
 );
 
 
-ALTER TABLE public.tipo_responsable OWNER TO mortal2018;
+ALTER TABLE tipo_responsable OWNER TO mortal2018;
 
 --
--- TOC entry 235 (class 1259 OID 32950)
+-- TOC entry 235 (class 1259 OID 16567)
 -- Name: tipo_responsable_id_tipo_responsable_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.tipo_responsable_id_tipo_responsable_seq
+CREATE SEQUENCE tipo_responsable_id_tipo_responsable_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1026,7 +1034,7 @@ CREATE SEQUENCE public.tipo_responsable_id_tipo_responsable_seq
     CACHE 1;
 
 
-ALTER TABLE public.tipo_responsable_id_tipo_responsable_seq OWNER TO mortal2018;
+ALTER TABLE tipo_responsable_id_tipo_responsable_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2481 (class 0 OID 0)
@@ -1034,29 +1042,29 @@ ALTER TABLE public.tipo_responsable_id_tipo_responsable_seq OWNER TO mortal2018;
 -- Name: tipo_responsable_id_tipo_responsable_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.tipo_responsable_id_tipo_responsable_seq OWNED BY public.tipo_responsable.id_tipo_responsable;
+ALTER SEQUENCE tipo_responsable_id_tipo_responsable_seq OWNED BY tipo_responsable.id_tipo_responsable;
 
 
 --
--- TOC entry 236 (class 1259 OID 32952)
+-- TOC entry 236 (class 1259 OID 16569)
 -- Name: unidad; Type: TABLE; Schema: public; Owner: mortal2018
 --
 
-CREATE TABLE public.unidad (
+CREATE TABLE unidad (
     id_unidad integer NOT NULL,
     nombre character varying(50) NOT NULL,
     codigo character varying
 );
 
 
-ALTER TABLE public.unidad OWNER TO mortal2018;
+ALTER TABLE unidad OWNER TO mortal2018;
 
 --
--- TOC entry 237 (class 1259 OID 32958)
+-- TOC entry 237 (class 1259 OID 16575)
 -- Name: unidad_id_unidad_seq; Type: SEQUENCE; Schema: public; Owner: mortal2018
 --
 
-CREATE SEQUENCE public.unidad_id_unidad_seq
+CREATE SEQUENCE unidad_id_unidad_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -1064,7 +1072,7 @@ CREATE SEQUENCE public.unidad_id_unidad_seq
     CACHE 1;
 
 
-ALTER TABLE public.unidad_id_unidad_seq OWNER TO mortal2018;
+ALTER TABLE unidad_id_unidad_seq OWNER TO mortal2018;
 
 --
 -- TOC entry 2482 (class 0 OID 0)
@@ -1072,242 +1080,231 @@ ALTER TABLE public.unidad_id_unidad_seq OWNER TO mortal2018;
 -- Name: unidad_id_unidad_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mortal2018
 --
 
-ALTER SEQUENCE public.unidad_id_unidad_seq OWNED BY public.unidad.id_unidad;
+ALTER SEQUENCE unidad_id_unidad_seq OWNED BY unidad.id_unidad;
 
 
 --
--- TOC entry 2175 (class 2604 OID 32960)
+-- TOC entry 2176 (class 2604 OID 16577)
 -- Name: calendario id_fecha; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.calendario ALTER COLUMN id_fecha SET DEFAULT nextval('public.calendario_id_fecha_seq'::regclass);
+ALTER TABLE ONLY calendario ALTER COLUMN id_fecha SET DEFAULT nextval('calendario_id_fecha_seq'::regclass);
 
 
 --
--- TOC entry 2176 (class 2604 OID 32961)
+-- TOC entry 2177 (class 2604 OID 16578)
 -- Name: calendario_excepcion id_excepcion; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.calendario_excepcion ALTER COLUMN id_excepcion SET DEFAULT nextval('public.calendario_excepcion_id_excepcion_seq'::regclass);
+ALTER TABLE ONLY calendario_excepcion ALTER COLUMN id_excepcion SET DEFAULT nextval('calendario_excepcion_id_excepcion_seq'::regclass);
 
 
 --
--- TOC entry 2177 (class 2604 OID 32962)
+-- TOC entry 2178 (class 2604 OID 16579)
 -- Name: diagnostico id_diagnostico; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico ALTER COLUMN id_diagnostico SET DEFAULT nextval('public.diagnostico_id_diagnostico_seq'::regclass);
+ALTER TABLE ONLY diagnostico ALTER COLUMN id_diagnostico SET DEFAULT nextval('diagnostico_id_diagnostico_seq'::regclass);
 
 
 --
--- TOC entry 2178 (class 2604 OID 32963)
+-- TOC entry 2179 (class 2604 OID 16580)
 -- Name: diagnostico_parte id_diagnostico_parte; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico_parte ALTER COLUMN id_diagnostico_parte SET DEFAULT nextval('public.diagnostico_parte_id_diagnostico_parte_seq'::regclass);
+ALTER TABLE ONLY diagnostico_parte ALTER COLUMN id_diagnostico_parte SET DEFAULT nextval('diagnostico_parte_id_diagnostico_parte_seq'::regclass);
 
 
 --
--- TOC entry 2179 (class 2604 OID 32964)
+-- TOC entry 2180 (class 2604 OID 16581)
 -- Name: equipo id_equipo; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo ALTER COLUMN id_equipo SET DEFAULT nextval('public.equipo_id_equipo_seq'::regclass);
+ALTER TABLE ONLY equipo ALTER COLUMN id_equipo SET DEFAULT nextval('equipo_id_equipo_seq'::regclass);
 
 
 --
--- TOC entry 2180 (class 2604 OID 32965)
+-- TOC entry 2181 (class 2604 OID 16582)
 -- Name: equipo_detalle id_equipo_detalle; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_detalle ALTER COLUMN id_equipo_detalle SET DEFAULT nextval('public.equipo_detalle_id_equipo_detalle_seq'::regclass);
+ALTER TABLE ONLY equipo_detalle ALTER COLUMN id_equipo_detalle SET DEFAULT nextval('equipo_detalle_id_equipo_detalle_seq'::regclass);
 
 
 --
--- TOC entry 2181 (class 2604 OID 32966)
+-- TOC entry 2182 (class 2604 OID 16583)
 -- Name: estado id_estado; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado ALTER COLUMN id_estado SET DEFAULT nextval('public.estado_id_estado_seq'::regclass);
+ALTER TABLE ONLY estado ALTER COLUMN id_estado SET DEFAULT nextval('estado_id_estado_seq'::regclass);
 
 
 --
--- TOC entry 2182 (class 2604 OID 32967)
+-- TOC entry 2183 (class 2604 OID 16584)
 -- Name: estado_mantenimiento_detalle id_estado_mantenimiento_detalle; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado_mantenimiento_detalle ALTER COLUMN id_estado_mantenimiento_detalle SET DEFAULT nextval('public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq'::regclass);
+ALTER TABLE ONLY estado_mantenimiento_detalle ALTER COLUMN id_estado_mantenimiento_detalle SET DEFAULT nextval('estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq'::regclass);
 
 
 --
--- TOC entry 2183 (class 2604 OID 32968)
+-- TOC entry 2184 (class 2604 OID 16585)
 -- Name: mantenimiento_detalle id_mantenimiento_detalle; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.mantenimiento_detalle ALTER COLUMN id_mantenimiento_detalle SET DEFAULT nextval('public.mantenimiento_detalle_id_mantenimiento_detalle_seq'::regclass);
+ALTER TABLE ONLY mantenimiento_detalle ALTER COLUMN id_mantenimiento_detalle SET DEFAULT nextval('mantenimiento_detalle_id_mantenimiento_detalle_seq'::regclass);
 
 
 --
--- TOC entry 2184 (class 2604 OID 32969)
+-- TOC entry 2185 (class 2604 OID 16586)
 -- Name: marca id_marca; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.marca ALTER COLUMN id_marca SET DEFAULT nextval('public.marca_id_marca_seq'::regclass);
+ALTER TABLE ONLY marca ALTER COLUMN id_marca SET DEFAULT nextval('marca_id_marca_seq'::regclass);
 
 
 --
--- TOC entry 2185 (class 2604 OID 32970)
+-- TOC entry 2186 (class 2604 OID 16587)
 -- Name: modelo id_modelo; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.modelo ALTER COLUMN id_modelo SET DEFAULT nextval('public.modelo_id_modelo_seq'::regclass);
+ALTER TABLE ONLY modelo ALTER COLUMN id_modelo SET DEFAULT nextval('modelo_id_modelo_seq'::regclass);
 
 
 --
--- TOC entry 2186 (class 2604 OID 33161)
+-- TOC entry 2187 (class 2604 OID 16588)
 -- Name: orden id_orden; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden ALTER COLUMN id_orden SET DEFAULT nextval('public.orden_id_orden_seq'::regclass);
+ALTER TABLE ONLY orden ALTER COLUMN id_orden SET DEFAULT nextval('orden_id_orden_seq'::regclass);
 
 
 --
--- TOC entry 2187 (class 2604 OID 32972)
+-- TOC entry 2188 (class 2604 OID 16589)
 -- Name: orden_calendario id_orden_calendario; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_calendario ALTER COLUMN id_orden_calendario SET DEFAULT nextval('public.orden_calendario_id_orden_calendario_seq'::regclass);
+ALTER TABLE ONLY orden_calendario ALTER COLUMN id_orden_calendario SET DEFAULT nextval('orden_calendario_id_orden_calendario_seq'::regclass);
 
 
 --
--- TOC entry 2188 (class 2604 OID 32973)
+-- TOC entry 2189 (class 2604 OID 16590)
 -- Name: orden_trabajo_equipo id_orden_trabajo; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo ALTER COLUMN id_orden_trabajo SET DEFAULT nextval('public.orden_trabajo_equipo_id_orden_trabajo_seq'::regclass);
+ALTER TABLE ONLY orden_trabajo_equipo ALTER COLUMN id_orden_trabajo SET DEFAULT nextval('orden_trabajo_equipo_id_orden_trabajo_seq'::regclass);
 
 
 --
--- TOC entry 2189 (class 2604 OID 32974)
+-- TOC entry 2190 (class 2604 OID 16591)
 -- Name: orden_trabajo_equipo_detalle id_orden_trabajo_equipo_detalle; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo_detalle ALTER COLUMN id_orden_trabajo_equipo_detalle SET DEFAULT nextval('public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq'::regclass);
+ALTER TABLE ONLY orden_trabajo_equipo_detalle ALTER COLUMN id_orden_trabajo_equipo_detalle SET DEFAULT nextval('orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq'::regclass);
 
 
 --
--- TOC entry 2190 (class 2604 OID 32975)
+-- TOC entry 2191 (class 2604 OID 16592)
 -- Name: parte id_parte; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.parte ALTER COLUMN id_parte SET DEFAULT nextval('public.parte_id_parte_seq'::regclass);
+ALTER TABLE ONLY parte ALTER COLUMN id_parte SET DEFAULT nextval('parte_id_parte_seq'::regclass);
 
 
 --
--- TOC entry 2191 (class 2604 OID 32976)
+-- TOC entry 2192 (class 2604 OID 16593)
 -- Name: paso id_paso; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.paso ALTER COLUMN id_paso SET DEFAULT nextval('public.paso_id_paso_seq'::regclass);
+ALTER TABLE ONLY paso ALTER COLUMN id_paso SET DEFAULT nextval('paso_id_paso_seq'::regclass);
 
 
 --
--- TOC entry 2192 (class 2604 OID 32977)
+-- TOC entry 2193 (class 2604 OID 16594)
 -- Name: prioridad id_prioridad; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.prioridad ALTER COLUMN id_prioridad SET DEFAULT nextval('public.prioridad_id_prioridad_seq'::regclass);
+ALTER TABLE ONLY prioridad ALTER COLUMN id_prioridad SET DEFAULT nextval('prioridad_id_prioridad_seq'::regclass);
 
 
 --
--- TOC entry 2193 (class 2604 OID 32978)
+-- TOC entry 2194 (class 2604 OID 16595)
 -- Name: procedimiento id_procedimiento; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.procedimiento ALTER COLUMN id_procedimiento SET DEFAULT nextval('public.procedimiento_id_procedimiento_seq'::regclass);
+ALTER TABLE ONLY procedimiento ALTER COLUMN id_procedimiento SET DEFAULT nextval('procedimiento_id_procedimiento_seq'::regclass);
 
 
 --
--- TOC entry 2194 (class 2604 OID 32979)
+-- TOC entry 2195 (class 2604 OID 16596)
 -- Name: responsable id_responsable; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.responsable ALTER COLUMN id_responsable SET DEFAULT nextval('public.responsable_id_responsable_seq'::regclass);
+ALTER TABLE ONLY responsable ALTER COLUMN id_responsable SET DEFAULT nextval('responsable_id_responsable_seq'::regclass);
 
 
 --
--- TOC entry 2195 (class 2604 OID 32980)
+-- TOC entry 2196 (class 2604 OID 16597)
 -- Name: solicitud id_solicitud; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.solicitud ALTER COLUMN id_solicitud SET DEFAULT nextval('public.solicitud_id_solicitud_seq'::regclass);
+ALTER TABLE ONLY solicitud ALTER COLUMN id_solicitud SET DEFAULT nextval('solicitud_id_solicitud_seq'::regclass);
 
 
 --
--- TOC entry 2196 (class 2604 OID 32981)
+-- TOC entry 2197 (class 2604 OID 16598)
 -- Name: sub_tipo_mantenimiento id_sub_tipo_mantenimiento; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.sub_tipo_mantenimiento ALTER COLUMN id_sub_tipo_mantenimiento SET DEFAULT nextval('public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq'::regclass);
+ALTER TABLE ONLY sub_tipo_mantenimiento ALTER COLUMN id_sub_tipo_mantenimiento SET DEFAULT nextval('sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq'::regclass);
 
 
 --
--- TOC entry 2197 (class 2604 OID 32982)
+-- TOC entry 2198 (class 2604 OID 16599)
 -- Name: tipo_mantenimiento id_tipo_mantenimiento; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_mantenimiento ALTER COLUMN id_tipo_mantenimiento SET DEFAULT nextval('public.tipo_mantenimiento_id_tipo_mantenimiento_seq'::regclass);
+ALTER TABLE ONLY tipo_mantenimiento ALTER COLUMN id_tipo_mantenimiento SET DEFAULT nextval('tipo_mantenimiento_id_tipo_mantenimiento_seq'::regclass);
 
 
 --
--- TOC entry 2198 (class 2604 OID 32983)
+-- TOC entry 2199 (class 2604 OID 16600)
 -- Name: tipo_parte id_tipo_parte; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_parte ALTER COLUMN id_tipo_parte SET DEFAULT nextval('public.tipo_parte_id_tipo_parte_seq'::regclass);
+ALTER TABLE ONLY tipo_parte ALTER COLUMN id_tipo_parte SET DEFAULT nextval('tipo_parte_id_tipo_parte_seq'::regclass);
 
 
 --
--- TOC entry 2199 (class 2604 OID 32984)
+-- TOC entry 2200 (class 2604 OID 16601)
 -- Name: tipo_responsable id_tipo_responsable; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_responsable ALTER COLUMN id_tipo_responsable SET DEFAULT nextval('public.tipo_responsable_id_tipo_responsable_seq'::regclass);
+ALTER TABLE ONLY tipo_responsable ALTER COLUMN id_tipo_responsable SET DEFAULT nextval('tipo_responsable_id_tipo_responsable_seq'::regclass);
 
 
 --
--- TOC entry 2200 (class 2604 OID 32985)
+-- TOC entry 2201 (class 2604 OID 16602)
 -- Name: unidad id_unidad; Type: DEFAULT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.unidad ALTER COLUMN id_unidad SET DEFAULT nextval('public.unidad_id_unidad_seq'::regclass);
+ALTER TABLE ONLY unidad ALTER COLUMN id_unidad SET DEFAULT nextval('unidad_id_unidad_seq'::regclass);
 
 
 --
--- TOC entry 2396 (class 0 OID 32770)
+-- TOC entry 2397 (class 0 OID 16387)
 -- Dependencies: 185
 -- Data for Name: calendario; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.calendario (id_fecha, fecha, descripcion, recurrente) FROM stdin;
-1	2018-05-10	dia de la madre	t
-2	2018-06-17	dia del padre	t
-3	2018-06-22	dia del maestro	t
-4	2018-11-01	dia de los difuntos	t
-\.
 
 
 --
--- TOC entry 2397 (class 0 OID 32776)
+-- TOC entry 2398 (class 0 OID 16393)
 -- Dependencies: 186
 -- Data for Name: calendario_excepcion; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.calendario_excepcion (id_excepcion, fecha, estado, descripcion) FROM stdin;
-1	2018-05-10	t	dia de la madre
-2	2018-06-17	t	dia del padre
-3	2018-06-22	t	dia del maestro
-\.
 
 
 --
@@ -1316,7 +1313,7 @@ COPY public.calendario_excepcion (id_excepcion, fecha, estado, descripcion) FROM
 -- Name: calendario_excepcion_id_excepcion_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.calendario_excepcion_id_excepcion_seq', 1, false);
+SELECT pg_catalog.setval('calendario_excepcion_id_excepcion_seq', 1, false);
 
 
 --
@@ -1325,21 +1322,15 @@ SELECT pg_catalog.setval('public.calendario_excepcion_id_excepcion_seq', 1, fals
 -- Name: calendario_id_fecha_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.calendario_id_fecha_seq', 1, false);
+SELECT pg_catalog.setval('calendario_id_fecha_seq', 1, false);
 
 
 --
--- TOC entry 2400 (class 0 OID 32786)
+-- TOC entry 2401 (class 0 OID 16403)
 -- Dependencies: 189
 -- Data for Name: diagnostico; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.diagnostico (id_diagnostico, nombre, descripcion) FROM stdin;
-1	irreparable	articulo sin solucion
-2	reparable	articulo con solucion
-3	en buen estado	articulo sin danos
-4	reparacion rapida	artico con poco dano
-\.
 
 
 --
@@ -1348,20 +1339,15 @@ COPY public.diagnostico (id_diagnostico, nombre, descripcion) FROM stdin;
 -- Name: diagnostico_id_diagnostico_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.diagnostico_id_diagnostico_seq', 1, false);
+SELECT pg_catalog.setval('diagnostico_id_diagnostico_seq', 1, false);
 
 
 --
--- TOC entry 2402 (class 0 OID 32794)
+-- TOC entry 2403 (class 0 OID 16411)
 -- Dependencies: 191
 -- Data for Name: diagnostico_parte; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.diagnostico_parte (id_diagnostico_parte, id_diagnostico, id_parte) FROM stdin;
-1	1	2
-2	2	1
-3	1	3
-\.
 
 
 --
@@ -1370,40 +1356,23 @@ COPY public.diagnostico_parte (id_diagnostico_parte, id_diagnostico, id_parte) F
 -- Name: diagnostico_parte_id_diagnostico_parte_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.diagnostico_parte_id_diagnostico_parte_seq', 1, false);
+SELECT pg_catalog.setval('diagnostico_parte_id_diagnostico_parte_seq', 1, false);
 
 
 --
--- TOC entry 2404 (class 0 OID 32799)
+-- TOC entry 2405 (class 0 OID 16416)
 -- Dependencies: 193
 -- Data for Name: equipo; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.equipo (id_equipo, no_inventario, observaciones, id_marca, responsable, fecha_ingreso) FROM stdin;
-1	0001	impresor	1	ingenieria	2018-06-12
-2	0002	monitor	2	fisica	2018-06-26
-3	0003	pc	5	letras	2018-06-12
-4	0004	usb	3	idiomas	2018-07-01
-5	0005	pc	5	letras	2018-07-15
-6	0006	usb	1	idiomas	2018-06-14
-7	0007	pc	6	letras	2018-07-26
-8	0008	monitor	4	ingenieria	2018-07-26
-9	0009	impresor	2	idiomas	2018-07-29
-10	0010	pc	5	letras	2018-07-29
-\.
 
 
 --
--- TOC entry 2405 (class 0 OID 32805)
+-- TOC entry 2406 (class 0 OID 16422)
 -- Dependencies: 194
 -- Data for Name: equipo_detalle; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.equipo_detalle (id_equipo, id_parte, id_equipo_detalle, id_modelo, id_marca, activo, n_inventario, serie, caracteristicas) FROM stdin;
-1	1	1	1	1	t	000001	DRT879	caract
-2	2	2	2	2	t	000002	FTD859	caract
-1	2	3	1	5	t	000003	WER7998	caract
-\.
 
 
 --
@@ -1412,7 +1381,7 @@ COPY public.equipo_detalle (id_equipo, id_parte, id_equipo_detalle, id_modelo, i
 -- Name: equipo_detalle_id_equipo_detalle_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.equipo_detalle_id_equipo_detalle_seq', 1, false);
+SELECT pg_catalog.setval('equipo_detalle_id_equipo_detalle_seq', 1, false);
 
 
 --
@@ -1421,33 +1390,23 @@ SELECT pg_catalog.setval('public.equipo_detalle_id_equipo_detalle_seq', 1, false
 -- Name: equipo_id_equipo_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.equipo_id_equipo_seq', 1, false);
+SELECT pg_catalog.setval('equipo_id_equipo_seq', 1, false);
 
 
 --
--- TOC entry 2408 (class 0 OID 32815)
+-- TOC entry 2409 (class 0 OID 16432)
 -- Dependencies: 197
 -- Data for Name: equipo_parte; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.equipo_parte (id_equipo, id_parte) FROM stdin;
-1	1
-1	2
-2	1
-2	2
-\.
 
 
 --
--- TOC entry 2409 (class 0 OID 32818)
+-- TOC entry 2410 (class 0 OID 16435)
 -- Dependencies: 198
 -- Data for Name: estado; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.estado (id_estado, nombre, activo, descripcion) FROM stdin;
-1	activo	t	estado activo
-2	inactivo	f	estado inanctivo
-\.
 
 
 --
@@ -1456,22 +1415,15 @@ COPY public.estado (id_estado, nombre, activo, descripcion) FROM stdin;
 -- Name: estado_id_estado_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.estado_id_estado_seq', 1, false);
+SELECT pg_catalog.setval('estado_id_estado_seq', 1, false);
 
 
 --
--- TOC entry 2411 (class 0 OID 32826)
+-- TOC entry 2412 (class 0 OID 16443)
 -- Dependencies: 200
 -- Data for Name: estado_mantenimiento_detalle; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.estado_mantenimiento_detalle (id_estado_mantenimiento_detalle, id_mantenimiento_detalle, id_estado, id_responsable, id_paso) FROM stdin;
-1	2	1	2	1
-2	1	2	1	2
-3	3	1	2	1
-4	2	2	3	1
-5	1	1	2	3
-\.
 
 
 --
@@ -1480,21 +1432,15 @@ COPY public.estado_mantenimiento_detalle (id_estado_mantenimiento_detalle, id_ma
 -- Name: estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq', 1, false);
+SELECT pg_catalog.setval('estado_mantenimiento_detalle_id_estado_mantenimiento_detall_seq', 1, false);
 
 
 --
--- TOC entry 2413 (class 0 OID 32831)
+-- TOC entry 2414 (class 0 OID 16448)
 -- Dependencies: 202
 -- Data for Name: mantenimiento_detalle; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.mantenimiento_detalle (id_mantenimiento_detalle, id_equipo_detalle, id_oden_trabajo) FROM stdin;
-1	1	1
-2	1	2
-3	2	3
-4	2	4
-\.
 
 
 --
@@ -1503,25 +1449,18 @@ COPY public.mantenimiento_detalle (id_mantenimiento_detalle, id_equipo_detalle, 
 -- Name: mantenimiento_detalle_id_mantenimiento_detalle_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.mantenimiento_detalle_id_mantenimiento_detalle_seq', 1, false);
+SELECT pg_catalog.setval('mantenimiento_detalle_id_mantenimiento_detalle_seq', 1, false);
 
 
 --
--- TOC entry 2415 (class 0 OID 32836)
+-- TOC entry 2416 (class 0 OID 16453)
 -- Dependencies: 204
 -- Data for Name: marca; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.marca (id_marca, nombre, activo, descripcion) FROM stdin;
-1	HP	t	marca hp
-2	Compaq	t	marca compaq
-3	Sony	t	marca sony
-4	Apple	t	marca aaple
-5	Samsung	t	marca samsung
-6	Cannon	t	marca cannon
-7	Epson	t	marca epson
-8	Toshiba	t	marca toshiba
-\.
+INSERT INTO marca (id_marca, nombre, activo, descripcion) VALUES (1, 'Dell', true, 'Descripcion de marca');
+INSERT INTO marca (id_marca, nombre, activo, descripcion) VALUES (2, 'Asus', true, 'Descripcion de marca de la pc de shobe');
+INSERT INTO marca (id_marca, nombre, activo, descripcion) VALUES (3, 'Hp', true, 'Pc hp');
 
 
 --
@@ -1530,27 +1469,15 @@ COPY public.marca (id_marca, nombre, activo, descripcion) FROM stdin;
 -- Name: marca_id_marca_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.marca_id_marca_seq', 1, false);
+SELECT pg_catalog.setval('marca_id_marca_seq', 3, true);
 
 
 --
--- TOC entry 2417 (class 0 OID 32844)
+-- TOC entry 2418 (class 0 OID 16461)
 -- Dependencies: 206
 -- Data for Name: modelo; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.modelo (id_modelo, nombre, activo, descripcion) FROM stdin;
-1	X555l	t	modelo laptop
-2	IM2324	t	modelo impresora
-3	MQ2322	t	modelo proyector
-4	AU24453	f	modelo grabadora
-5	DF45453	t	modelo monitor
-6	CP34332	t	modelo cpu
-7	CD78877	t	modelo cpu
-8	OP3344	t	modelo regulador
-9	ER3454	t	modelo calculadora
-10	MM3554	t	modelo usb
-\.
 
 
 --
@@ -1559,37 +1486,23 @@ COPY public.modelo (id_modelo, nombre, activo, descripcion) FROM stdin;
 -- Name: modelo_id_modelo_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.modelo_id_modelo_seq', 1, false);
+SELECT pg_catalog.setval('modelo_id_modelo_seq', 1, false);
 
 
 --
--- TOC entry 2419 (class 0 OID 32852)
+-- TOC entry 2420 (class 0 OID 16469)
 -- Dependencies: 208
 -- Data for Name: orden; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.orden (id_orden, fecha, observaciones, activo, id_solicitud, id_unidad) FROM stdin;
-2	2018-06-19	mantto tradicional	t	2	1
-4	2018-06-26	mantto tradicional	t	4	2
-5	2018-06-27	mantto regular	t	5	3
-6	2018-06-29	mantto precentivo	t	6	4
-1	2018-06-23	mantto preventivo	f	1	3
-3	2018-06-26	mantto programado	f	3	2
-\.
 
 
 --
--- TOC entry 2420 (class 0 OID 32858)
+-- TOC entry 2421 (class 0 OID 16475)
 -- Dependencies: 209
 -- Data for Name: orden_calendario; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.orden_calendario (id_orden_calendario, id_fecha, id_orden) FROM stdin;
-1	1	1
-2	2	2
-3	1	3
-4	2	4
-\.
 
 
 --
@@ -1598,7 +1511,7 @@ COPY public.orden_calendario (id_orden_calendario, id_fecha, id_orden) FROM stdi
 -- Name: orden_calendario_id_orden_calendario_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.orden_calendario_id_orden_calendario_seq', 1, false);
+SELECT pg_catalog.setval('orden_calendario_id_orden_calendario_seq', 1, false);
 
 
 --
@@ -1607,33 +1520,23 @@ SELECT pg_catalog.setval('public.orden_calendario_id_orden_calendario_seq', 1, f
 -- Name: orden_id_orden_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.orden_id_orden_seq', 1, false);
+SELECT pg_catalog.setval('orden_id_orden_seq', 1, false);
 
 
 --
--- TOC entry 2423 (class 0 OID 32865)
+-- TOC entry 2424 (class 0 OID 16482)
 -- Dependencies: 212
 -- Data for Name: orden_trabajo_equipo; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.orden_trabajo_equipo (id_orden_trabajo, fecha_inicio, fecha_estimada, id_orden, id_equipo, id_tipo_mantenimiento, id_prioridad) FROM stdin;
-1	2018-04-15	2018-06-25	1	1	1	1
-2	2018-06-15	2018-06-23	2	2	2	2
-3	2018-06-25	2018-07-12	3	1	1	1
-4	2018-06-29	2018-07-15	4	2	1	3
-\.
 
 
 --
--- TOC entry 2424 (class 0 OID 32868)
+-- TOC entry 2425 (class 0 OID 16485)
 -- Dependencies: 213
 -- Data for Name: orden_trabajo_equipo_detalle; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.orden_trabajo_equipo_detalle (id_orden_trabajo_equipo_detalle, id_orden_trabajo, id_equipo, id_parte, id_usuario, id_rol) FROM stdin;
-1	1	1	2	1	2
-2	1	1	1	1	1
-\.
 
 
 --
@@ -1642,7 +1545,7 @@ COPY public.orden_trabajo_equipo_detalle (id_orden_trabajo_equipo_detalle, id_or
 -- Name: orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq', 1, false);
+SELECT pg_catalog.setval('orden_trabajo_equipo_detalle_id_orden_trabajo_equipo_detall_seq', 1, false);
 
 
 --
@@ -1651,21 +1554,15 @@ SELECT pg_catalog.setval('public.orden_trabajo_equipo_detalle_id_orden_trabajo_e
 -- Name: orden_trabajo_equipo_id_orden_trabajo_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.orden_trabajo_equipo_id_orden_trabajo_seq', 1, false);
+SELECT pg_catalog.setval('orden_trabajo_equipo_id_orden_trabajo_seq', 1, false);
 
 
 --
--- TOC entry 2427 (class 0 OID 32875)
+-- TOC entry 2428 (class 0 OID 16492)
 -- Dependencies: 216
 -- Data for Name: parte; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.parte (id_parte, nombre, descripcion, id_tipo_parte) FROM stdin;
-1	Memoria Ram	memoria	1
-3	Mouse	mouse	1
-2	Memoria usb	memoria	1
-4	antivirus	programa	2
-\.
 
 
 --
@@ -1674,21 +1571,15 @@ COPY public.parte (id_parte, nombre, descripcion, id_tipo_parte) FROM stdin;
 -- Name: parte_id_parte_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.parte_id_parte_seq', 1, false);
+SELECT pg_catalog.setval('parte_id_parte_seq', 1, false);
 
 
 --
--- TOC entry 2429 (class 0 OID 32883)
+-- TOC entry 2430 (class 0 OID 16500)
 -- Dependencies: 218
 -- Data for Name: paso; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.paso (id_paso, nombre, descripcion, id_procedimiento) FROM stdin;
-1	cambiar piezas	cambio deuna pieza	1
-2	reparar pieza	reparacion de pieza	2
-3	cambiar placa	cambio de placa	2
-4	cmabio de panatalla	cambio de pantall	4
-\.
 
 
 --
@@ -1697,20 +1588,15 @@ COPY public.paso (id_paso, nombre, descripcion, id_procedimiento) FROM stdin;
 -- Name: paso_id_paso_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.paso_id_paso_seq', 1, false);
+SELECT pg_catalog.setval('paso_id_paso_seq', 1, false);
 
 
 --
--- TOC entry 2431 (class 0 OID 32891)
+-- TOC entry 2432 (class 0 OID 16508)
 -- Dependencies: 220
 -- Data for Name: prioridad; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.prioridad (id_prioridad, nombre, descripcion, activo) FROM stdin;
-1	urgente	demanda alta	t
-2	estandar	uso medio	t
-3	leve	poco uso 	t
-\.
 
 
 --
@@ -1719,21 +1605,15 @@ COPY public.prioridad (id_prioridad, nombre, descripcion, activo) FROM stdin;
 -- Name: prioridad_id_prioridad_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.prioridad_id_prioridad_seq', 1, false);
+SELECT pg_catalog.setval('prioridad_id_prioridad_seq', 1, false);
 
 
 --
--- TOC entry 2433 (class 0 OID 32899)
+-- TOC entry 2434 (class 0 OID 16516)
 -- Dependencies: 222
 -- Data for Name: procedimiento; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.procedimiento (id_procedimiento, nombre, activo, descripcion, id_diagnostico) FROM stdin;
-1	evaluar	t	evaluacion	1
-2	investigar	t	investigacion	2
-3	reparar	t	reparacion	4
-4	eliminar	t	desecho 	1
-\.
 
 
 --
@@ -1742,23 +1622,15 @@ COPY public.procedimiento (id_procedimiento, nombre, activo, descripcion, id_dia
 -- Name: procedimiento_id_procedimiento_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.procedimiento_id_procedimiento_seq', 1, false);
+SELECT pg_catalog.setval('procedimiento_id_procedimiento_seq', 1, false);
 
 
 --
--- TOC entry 2435 (class 0 OID 32907)
+-- TOC entry 2436 (class 0 OID 16524)
 -- Dependencies: 224
 -- Data for Name: responsable; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.responsable (id_responsable, nombre, activo, descripcion, id_tipo_responsable) FROM stdin;
-1	Juan Perez	t	ingeniero	1
-2	Carlos Castro	t	tecnico	2
-3	Jose Vides	t	estudiante	3
-4	Luis Doratt	f	ingeniero	1
-5	Erick Flores	t	tecnico	1
-6	Alex Monzon	t	estudiante	3
-\.
 
 
 --
@@ -1767,23 +1639,15 @@ COPY public.responsable (id_responsable, nombre, activo, descripcion, id_tipo_re
 -- Name: responsable_id_responsable_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.responsable_id_responsable_seq', 1, false);
+SELECT pg_catalog.setval('responsable_id_responsable_seq', 1, false);
 
 
 --
--- TOC entry 2437 (class 0 OID 32915)
+-- TOC entry 2438 (class 0 OID 16532)
 -- Dependencies: 226
 -- Data for Name: solicitud; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.solicitud (id_solicitud, solicitante, fecha_solicitud, activo) FROM stdin;
-1	Depto Letras	2018-06-15	f
-2	Depto  CSS	2018-06-15	t
-3	Depto Idiomas	2018-06-16	t
-4	Depto Fisica	2018-06-17	f
-5	Depto Ingenieria	2018-06-19	t
-6	Decanato	2018-06-21	t
-\.
 
 
 --
@@ -1792,20 +1656,15 @@ COPY public.solicitud (id_solicitud, solicitante, fecha_solicitud, activo) FROM 
 -- Name: solicitud_id_solicitud_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.solicitud_id_solicitud_seq', 1, false);
+SELECT pg_catalog.setval('solicitud_id_solicitud_seq', 1, false);
 
 
 --
--- TOC entry 2439 (class 0 OID 32920)
+-- TOC entry 2440 (class 0 OID 16537)
 -- Dependencies: 228
 -- Data for Name: sub_tipo_mantenimiento; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.sub_tipo_mantenimiento (id_sub_tipo_mantenimiento, nombre, descripcion) FROM stdin;
-1	correctivo	mantto correctivo
-2	preventivo	mantto preventivo
-3	correctivo/preventivo	ambos tipos
-\.
 
 
 --
@@ -1814,19 +1673,15 @@ COPY public.sub_tipo_mantenimiento (id_sub_tipo_mantenimiento, nombre, descripci
 -- Name: sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq', 1, false);
+SELECT pg_catalog.setval('sub_tipo_mantenimiento_id_sub_tipo_mantenimiento_seq', 1, false);
 
 
 --
--- TOC entry 2441 (class 0 OID 32928)
+-- TOC entry 2442 (class 0 OID 16545)
 -- Dependencies: 230
 -- Data for Name: tipo_mantenimiento; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.tipo_mantenimiento (id_tipo_mantenimiento, nombre, descipcion, activo, id_sub_tipo_mantenimiento) FROM stdin;
-1	programado	mantoo programado	t	1
-2	no programado	mantto no programdo	t	2
-\.
 
 
 --
@@ -1835,19 +1690,15 @@ COPY public.tipo_mantenimiento (id_tipo_mantenimiento, nombre, descipcion, activ
 -- Name: tipo_mantenimiento_id_tipo_mantenimiento_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.tipo_mantenimiento_id_tipo_mantenimiento_seq', 1, false);
+SELECT pg_catalog.setval('tipo_mantenimiento_id_tipo_mantenimiento_seq', 1, false);
 
 
 --
--- TOC entry 2443 (class 0 OID 32936)
+-- TOC entry 2444 (class 0 OID 16553)
 -- Dependencies: 232
 -- Data for Name: tipo_parte; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.tipo_parte (id_tipo_parte, nombre, descripcion) FROM stdin;
-1	hardware	parte de hardware
-2	software	parte de software
-\.
 
 
 --
@@ -1856,20 +1707,15 @@ COPY public.tipo_parte (id_tipo_parte, nombre, descripcion) FROM stdin;
 -- Name: tipo_parte_id_tipo_parte_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.tipo_parte_id_tipo_parte_seq', 1, false);
+SELECT pg_catalog.setval('tipo_parte_id_tipo_parte_seq', 1, false);
 
 
 --
--- TOC entry 2445 (class 0 OID 32944)
+-- TOC entry 2446 (class 0 OID 16561)
 -- Dependencies: 234
 -- Data for Name: tipo_responsable; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.tipo_responsable (id_tipo_responsable, nombre, descripciont) FROM stdin;
-1	Ingeniero	jefe
-2	Tecnico	tecnico
-3	Estudiante	estudiante
-\.
 
 
 --
@@ -1878,24 +1724,15 @@ COPY public.tipo_responsable (id_tipo_responsable, nombre, descripciont) FROM st
 -- Name: tipo_responsable_id_tipo_responsable_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.tipo_responsable_id_tipo_responsable_seq', 1, false);
+SELECT pg_catalog.setval('tipo_responsable_id_tipo_responsable_seq', 1, false);
 
 
 --
--- TOC entry 2447 (class 0 OID 32952)
+-- TOC entry 2448 (class 0 OID 16569)
 -- Dependencies: 236
 -- Data for Name: unidad; Type: TABLE DATA; Schema: public; Owner: mortal2018
 --
 
-COPY public.unidad (id_unidad, nombre, codigo) FROM stdin;
-1	Ingenieria	0001
-2	Letras	0002
-3	Idiomas	0003
-4	Psicologia	0004
-5	Fisica	0005
-6	Matematica	0006
-7	Decanato	0007
-\.
 
 
 --
@@ -1904,471 +1741,472 @@ COPY public.unidad (id_unidad, nombre, codigo) FROM stdin;
 -- Name: unidad_id_unidad_seq; Type: SEQUENCE SET; Schema: public; Owner: mortal2018
 --
 
-SELECT pg_catalog.setval('public.unidad_id_unidad_seq', 1, false);
+SELECT pg_catalog.setval('unidad_id_unidad_seq', 1, false);
 
 
 --
--- TOC entry 2230 (class 2606 OID 32987)
+-- TOC entry 2231 (class 2606 OID 16604)
 -- Name: orden_trabajo_equipo ok_orden_trabajo_equipo; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo
+ALTER TABLE ONLY orden_trabajo_equipo
     ADD CONSTRAINT ok_orden_trabajo_equipo PRIMARY KEY (id_orden_trabajo);
 
 
 --
--- TOC entry 2202 (class 2606 OID 32989)
+-- TOC entry 2203 (class 2606 OID 16606)
 -- Name: calendario pk_calendario; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.calendario
+ALTER TABLE ONLY calendario
     ADD CONSTRAINT pk_calendario PRIMARY KEY (id_fecha);
 
 
 --
--- TOC entry 2204 (class 2606 OID 32991)
+-- TOC entry 2205 (class 2606 OID 16608)
 -- Name: calendario_excepcion pk_calendario_excepcion; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.calendario_excepcion
+ALTER TABLE ONLY calendario_excepcion
     ADD CONSTRAINT pk_calendario_excepcion PRIMARY KEY (id_excepcion);
 
 
 --
--- TOC entry 2206 (class 2606 OID 32993)
+-- TOC entry 2207 (class 2606 OID 16610)
 -- Name: diagnostico pk_diagnostico; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico
+ALTER TABLE ONLY diagnostico
     ADD CONSTRAINT pk_diagnostico PRIMARY KEY (id_diagnostico);
 
 
 --
--- TOC entry 2208 (class 2606 OID 32995)
+-- TOC entry 2209 (class 2606 OID 16612)
 -- Name: diagnostico_parte pk_diagnostico_parte; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico_parte
+ALTER TABLE ONLY diagnostico_parte
     ADD CONSTRAINT pk_diagnostico_parte PRIMARY KEY (id_diagnostico_parte);
 
 
 --
--- TOC entry 2210 (class 2606 OID 32997)
+-- TOC entry 2211 (class 2606 OID 16614)
 -- Name: equipo pk_equipo; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo
+ALTER TABLE ONLY equipo
     ADD CONSTRAINT pk_equipo PRIMARY KEY (id_equipo);
 
 
 --
--- TOC entry 2212 (class 2606 OID 32999)
+-- TOC entry 2213 (class 2606 OID 16616)
 -- Name: equipo_detalle pk_equipo_detalle; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_detalle
+ALTER TABLE ONLY equipo_detalle
     ADD CONSTRAINT pk_equipo_detalle PRIMARY KEY (id_equipo, id_parte);
 
 
 --
--- TOC entry 2214 (class 2606 OID 33001)
+-- TOC entry 2215 (class 2606 OID 16618)
 -- Name: equipo_parte pk_equipo_parte; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_parte
+ALTER TABLE ONLY equipo_parte
     ADD CONSTRAINT pk_equipo_parte PRIMARY KEY (id_equipo, id_parte);
 
 
 --
--- TOC entry 2216 (class 2606 OID 33003)
+-- TOC entry 2217 (class 2606 OID 16620)
 -- Name: estado pk_estado; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado
+ALTER TABLE ONLY estado
     ADD CONSTRAINT pk_estado PRIMARY KEY (id_estado);
 
 
 --
--- TOC entry 2218 (class 2606 OID 33005)
+-- TOC entry 2219 (class 2606 OID 16622)
 -- Name: estado_mantenimiento_detalle pk_estado_mantenimiento_detalle; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado_mantenimiento_detalle
+ALTER TABLE ONLY estado_mantenimiento_detalle
     ADD CONSTRAINT pk_estado_mantenimiento_detalle PRIMARY KEY (id_estado_mantenimiento_detalle);
 
 
 --
--- TOC entry 2220 (class 2606 OID 33007)
+-- TOC entry 2221 (class 2606 OID 16624)
 -- Name: mantenimiento_detalle pk_mantenimiento_detalle; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.mantenimiento_detalle
+ALTER TABLE ONLY mantenimiento_detalle
     ADD CONSTRAINT pk_mantenimiento_detalle PRIMARY KEY (id_mantenimiento_detalle);
 
 
 --
--- TOC entry 2222 (class 2606 OID 33009)
+-- TOC entry 2223 (class 2606 OID 16626)
 -- Name: marca pk_marca; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.marca
+ALTER TABLE ONLY marca
     ADD CONSTRAINT pk_marca PRIMARY KEY (id_marca);
 
 
 --
--- TOC entry 2224 (class 2606 OID 33011)
+-- TOC entry 2225 (class 2606 OID 16628)
 -- Name: modelo pk_modelo; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.modelo
+ALTER TABLE ONLY modelo
     ADD CONSTRAINT pk_modelo PRIMARY KEY (id_modelo);
 
 
 --
--- TOC entry 2226 (class 2606 OID 33163)
+-- TOC entry 2227 (class 2606 OID 16630)
 -- Name: orden pk_orden; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden
+ALTER TABLE ONLY orden
     ADD CONSTRAINT pk_orden PRIMARY KEY (id_orden);
 
 
 --
--- TOC entry 2228 (class 2606 OID 33015)
+-- TOC entry 2229 (class 2606 OID 16632)
 -- Name: orden_calendario pk_orden_calendario; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_calendario
+ALTER TABLE ONLY orden_calendario
     ADD CONSTRAINT pk_orden_calendario PRIMARY KEY (id_orden_calendario);
 
 
 --
--- TOC entry 2232 (class 2606 OID 33017)
+-- TOC entry 2233 (class 2606 OID 16634)
 -- Name: orden_trabajo_equipo_detalle pk_orden_trabajo_equipo_detalle; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo_detalle
+ALTER TABLE ONLY orden_trabajo_equipo_detalle
     ADD CONSTRAINT pk_orden_trabajo_equipo_detalle PRIMARY KEY (id_orden_trabajo_equipo_detalle);
 
 
 --
--- TOC entry 2234 (class 2606 OID 33019)
+-- TOC entry 2235 (class 2606 OID 16636)
 -- Name: parte pk_parte; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.parte
+ALTER TABLE ONLY parte
     ADD CONSTRAINT pk_parte PRIMARY KEY (id_parte);
 
 
 --
--- TOC entry 2236 (class 2606 OID 33021)
+-- TOC entry 2237 (class 2606 OID 16638)
 -- Name: paso pk_paso; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.paso
+ALTER TABLE ONLY paso
     ADD CONSTRAINT pk_paso PRIMARY KEY (id_paso);
 
 
 --
--- TOC entry 2238 (class 2606 OID 33023)
+-- TOC entry 2239 (class 2606 OID 16640)
 -- Name: prioridad pk_prioridad; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.prioridad
+ALTER TABLE ONLY prioridad
     ADD CONSTRAINT pk_prioridad PRIMARY KEY (id_prioridad);
 
 
 --
--- TOC entry 2240 (class 2606 OID 33025)
+-- TOC entry 2241 (class 2606 OID 16642)
 -- Name: procedimiento pk_procedimiento; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.procedimiento
+ALTER TABLE ONLY procedimiento
     ADD CONSTRAINT pk_procedimiento PRIMARY KEY (id_procedimiento);
 
 
 --
--- TOC entry 2242 (class 2606 OID 33027)
+-- TOC entry 2243 (class 2606 OID 16644)
 -- Name: responsable pk_rsponsable; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.responsable
+ALTER TABLE ONLY responsable
     ADD CONSTRAINT pk_rsponsable PRIMARY KEY (id_responsable);
 
 
 --
--- TOC entry 2244 (class 2606 OID 33029)
+-- TOC entry 2245 (class 2606 OID 16646)
 -- Name: solicitud pk_solicitud; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.solicitud
+ALTER TABLE ONLY solicitud
     ADD CONSTRAINT pk_solicitud PRIMARY KEY (id_solicitud);
 
 
 --
--- TOC entry 2246 (class 2606 OID 33031)
+-- TOC entry 2247 (class 2606 OID 16648)
 -- Name: sub_tipo_mantenimiento pk_sub_tipo_mantenimiento; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.sub_tipo_mantenimiento
+ALTER TABLE ONLY sub_tipo_mantenimiento
     ADD CONSTRAINT pk_sub_tipo_mantenimiento PRIMARY KEY (id_sub_tipo_mantenimiento);
 
 
 --
--- TOC entry 2248 (class 2606 OID 33033)
+-- TOC entry 2249 (class 2606 OID 16650)
 -- Name: tipo_mantenimiento pk_tipo_mantenimiento; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_mantenimiento
+ALTER TABLE ONLY tipo_mantenimiento
     ADD CONSTRAINT pk_tipo_mantenimiento PRIMARY KEY (id_tipo_mantenimiento);
 
 
 --
--- TOC entry 2250 (class 2606 OID 33035)
+-- TOC entry 2251 (class 2606 OID 16652)
 -- Name: tipo_parte pk_tipo_parte; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_parte
+ALTER TABLE ONLY tipo_parte
     ADD CONSTRAINT pk_tipo_parte PRIMARY KEY (id_tipo_parte);
 
 
 --
--- TOC entry 2252 (class 2606 OID 33037)
+-- TOC entry 2253 (class 2606 OID 16654)
 -- Name: tipo_responsable pk_tipo_responsable; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_responsable
+ALTER TABLE ONLY tipo_responsable
     ADD CONSTRAINT pk_tipo_responsable PRIMARY KEY (id_tipo_responsable);
 
 
 --
--- TOC entry 2254 (class 2606 OID 33039)
+-- TOC entry 2255 (class 2606 OID 16656)
 -- Name: unidad pk_unidad; Type: CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.unidad
+ALTER TABLE ONLY unidad
     ADD CONSTRAINT pk_unidad PRIMARY KEY (id_unidad);
 
 
 --
--- TOC entry 2255 (class 2606 OID 33040)
+-- TOC entry 2256 (class 2606 OID 16657)
 -- Name: diagnostico_parte fk_diagnostico_parte_diagnostico; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico_parte
-    ADD CONSTRAINT fk_diagnostico_parte_diagnostico FOREIGN KEY (id_diagnostico) REFERENCES public.diagnostico(id_diagnostico) MATCH FULL;
+ALTER TABLE ONLY diagnostico_parte
+    ADD CONSTRAINT fk_diagnostico_parte_diagnostico FOREIGN KEY (id_diagnostico) REFERENCES diagnostico(id_diagnostico) MATCH FULL;
 
 
 --
--- TOC entry 2256 (class 2606 OID 33045)
+-- TOC entry 2257 (class 2606 OID 16662)
 -- Name: diagnostico_parte fk_diagnostico_parte_parte; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.diagnostico_parte
-    ADD CONSTRAINT fk_diagnostico_parte_parte FOREIGN KEY (id_parte) REFERENCES public.parte(id_parte) MATCH FULL;
+ALTER TABLE ONLY diagnostico_parte
+    ADD CONSTRAINT fk_diagnostico_parte_parte FOREIGN KEY (id_parte) REFERENCES parte(id_parte) MATCH FULL;
 
 
 --
--- TOC entry 2257 (class 2606 OID 33050)
+-- TOC entry 2258 (class 2606 OID 16667)
 -- Name: equipo_detalle fk_equipo_detalle_marca; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_detalle
-    ADD CONSTRAINT fk_equipo_detalle_marca FOREIGN KEY (id_marca) REFERENCES public.marca(id_marca) MATCH FULL;
+ALTER TABLE ONLY equipo_detalle
+    ADD CONSTRAINT fk_equipo_detalle_marca FOREIGN KEY (id_marca) REFERENCES marca(id_marca) MATCH FULL;
 
 
 --
--- TOC entry 2258 (class 2606 OID 33055)
+-- TOC entry 2259 (class 2606 OID 16672)
 -- Name: equipo_detalle fk_equipo_detalle_modelo; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_detalle
-    ADD CONSTRAINT fk_equipo_detalle_modelo FOREIGN KEY (id_modelo) REFERENCES public.modelo(id_modelo) MATCH FULL;
+ALTER TABLE ONLY equipo_detalle
+    ADD CONSTRAINT fk_equipo_detalle_modelo FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo) MATCH FULL;
 
 
 --
--- TOC entry 2259 (class 2606 OID 33060)
+-- TOC entry 2260 (class 2606 OID 16677)
 -- Name: equipo_parte fk_equipo_parte_equipo; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.equipo_parte
-    ADD CONSTRAINT fk_equipo_parte_equipo FOREIGN KEY (id_equipo) REFERENCES public.equipo(id_equipo) MATCH FULL;
+ALTER TABLE ONLY equipo_parte
+    ADD CONSTRAINT fk_equipo_parte_equipo FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo) MATCH FULL;
 
 
 --
--- TOC entry 2260 (class 2606 OID 33065)
+-- TOC entry 2261 (class 2606 OID 16682)
 -- Name: estado_mantenimiento_detalle fk_estado_mantenimiento_detalle_estado; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado_mantenimiento_detalle
-    ADD CONSTRAINT fk_estado_mantenimiento_detalle_estado FOREIGN KEY (id_estado) REFERENCES public.estado(id_estado) MATCH FULL;
+ALTER TABLE ONLY estado_mantenimiento_detalle
+    ADD CONSTRAINT fk_estado_mantenimiento_detalle_estado FOREIGN KEY (id_estado) REFERENCES estado(id_estado) MATCH FULL;
 
 
 --
--- TOC entry 2261 (class 2606 OID 33070)
+-- TOC entry 2262 (class 2606 OID 16687)
 -- Name: estado_mantenimiento_detalle fk_estado_mantenimiento_detalle_mantenimiento_detalle; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado_mantenimiento_detalle
-    ADD CONSTRAINT fk_estado_mantenimiento_detalle_mantenimiento_detalle FOREIGN KEY (id_mantenimiento_detalle) REFERENCES public.mantenimiento_detalle(id_mantenimiento_detalle) MATCH FULL;
+ALTER TABLE ONLY estado_mantenimiento_detalle
+    ADD CONSTRAINT fk_estado_mantenimiento_detalle_mantenimiento_detalle FOREIGN KEY (id_mantenimiento_detalle) REFERENCES mantenimiento_detalle(id_mantenimiento_detalle) MATCH FULL;
 
 
 --
--- TOC entry 2262 (class 2606 OID 33075)
+-- TOC entry 2263 (class 2606 OID 16692)
 -- Name: estado_mantenimiento_detalle fk_estado_mantenimiento_detalle_responsable; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.estado_mantenimiento_detalle
-    ADD CONSTRAINT fk_estado_mantenimiento_detalle_responsable FOREIGN KEY (id_responsable) REFERENCES public.responsable(id_responsable) MATCH FULL;
+ALTER TABLE ONLY estado_mantenimiento_detalle
+    ADD CONSTRAINT fk_estado_mantenimiento_detalle_responsable FOREIGN KEY (id_responsable) REFERENCES responsable(id_responsable) MATCH FULL;
 
 
 --
--- TOC entry 2263 (class 2606 OID 33080)
+-- TOC entry 2264 (class 2606 OID 16697)
 -- Name: mantenimiento_detalle fk_mantenimiento_detalle_orden_trabajo_equipo; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.mantenimiento_detalle
-    ADD CONSTRAINT fk_mantenimiento_detalle_orden_trabajo_equipo FOREIGN KEY (id_oden_trabajo) REFERENCES public.orden_trabajo_equipo(id_orden_trabajo) MATCH FULL;
+ALTER TABLE ONLY mantenimiento_detalle
+    ADD CONSTRAINT fk_mantenimiento_detalle_orden_trabajo_equipo FOREIGN KEY (id_oden_trabajo) REFERENCES orden_trabajo_equipo(id_orden_trabajo) MATCH FULL;
 
 
 --
--- TOC entry 2266 (class 2606 OID 33085)
+-- TOC entry 2267 (class 2606 OID 16702)
 -- Name: orden_calendario fk_orden_calendario_calendario; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_calendario
-    ADD CONSTRAINT fk_orden_calendario_calendario FOREIGN KEY (id_fecha) REFERENCES public.calendario(id_fecha) MATCH FULL;
+ALTER TABLE ONLY orden_calendario
+    ADD CONSTRAINT fk_orden_calendario_calendario FOREIGN KEY (id_fecha) REFERENCES calendario(id_fecha) MATCH FULL;
 
 
 --
--- TOC entry 2267 (class 2606 OID 33164)
+-- TOC entry 2268 (class 2606 OID 16707)
 -- Name: orden_calendario fk_orden_calendario_orden; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_calendario
-    ADD CONSTRAINT fk_orden_calendario_orden FOREIGN KEY (id_orden) REFERENCES public.orden(id_orden) MATCH FULL;
+ALTER TABLE ONLY orden_calendario
+    ADD CONSTRAINT fk_orden_calendario_orden FOREIGN KEY (id_orden) REFERENCES orden(id_orden) MATCH FULL;
 
 
 --
--- TOC entry 2264 (class 2606 OID 33095)
+-- TOC entry 2265 (class 2606 OID 16712)
 -- Name: orden fk_orden_solicitud; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden
-    ADD CONSTRAINT fk_orden_solicitud FOREIGN KEY (id_solicitud) REFERENCES public.solicitud(id_solicitud) MATCH FULL;
+ALTER TABLE ONLY orden
+    ADD CONSTRAINT fk_orden_solicitud FOREIGN KEY (id_solicitud) REFERENCES solicitud(id_solicitud) MATCH FULL;
 
 
 --
--- TOC entry 2272 (class 2606 OID 33100)
+-- TOC entry 2273 (class 2606 OID 16717)
 -- Name: orden_trabajo_equipo_detalle fk_orden_trabajo_equipo_detalle_equipo_detalle; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo_detalle
-    ADD CONSTRAINT fk_orden_trabajo_equipo_detalle_equipo_detalle FOREIGN KEY (id_equipo, id_parte) REFERENCES public.equipo_detalle(id_equipo, id_parte) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo_detalle
+    ADD CONSTRAINT fk_orden_trabajo_equipo_detalle_equipo_detalle FOREIGN KEY (id_equipo, id_parte) REFERENCES equipo_detalle(id_equipo, id_parte) MATCH FULL;
 
 
 --
--- TOC entry 2273 (class 2606 OID 33105)
+-- TOC entry 2274 (class 2606 OID 16722)
 -- Name: orden_trabajo_equipo_detalle fk_orden_trabajo_equipo_detalle_orden_trabajo_equipo; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo_detalle
-    ADD CONSTRAINT fk_orden_trabajo_equipo_detalle_orden_trabajo_equipo FOREIGN KEY (id_orden_trabajo) REFERENCES public.orden_trabajo_equipo(id_orden_trabajo) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo_detalle
+    ADD CONSTRAINT fk_orden_trabajo_equipo_detalle_orden_trabajo_equipo FOREIGN KEY (id_orden_trabajo) REFERENCES orden_trabajo_equipo(id_orden_trabajo) MATCH FULL;
 
 
 --
--- TOC entry 2268 (class 2606 OID 33110)
+-- TOC entry 2269 (class 2606 OID 16727)
 -- Name: orden_trabajo_equipo fk_orden_trabajo_equipo_equipo; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo
-    ADD CONSTRAINT fk_orden_trabajo_equipo_equipo FOREIGN KEY (id_equipo) REFERENCES public.equipo(id_equipo) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo
+    ADD CONSTRAINT fk_orden_trabajo_equipo_equipo FOREIGN KEY (id_equipo) REFERENCES equipo(id_equipo) MATCH FULL;
 
 
 --
--- TOC entry 2271 (class 2606 OID 33169)
+-- TOC entry 2270 (class 2606 OID 16732)
 -- Name: orden_trabajo_equipo fk_orden_trabajo_equipo_orden; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo
-    ADD CONSTRAINT fk_orden_trabajo_equipo_orden FOREIGN KEY (id_orden) REFERENCES public.orden(id_orden) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo
+    ADD CONSTRAINT fk_orden_trabajo_equipo_orden FOREIGN KEY (id_orden) REFERENCES orden(id_orden) MATCH FULL;
 
 
 --
--- TOC entry 2269 (class 2606 OID 33120)
+-- TOC entry 2271 (class 2606 OID 16737)
 -- Name: orden_trabajo_equipo fk_orden_trabajo_equipo_prioridad; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo
-    ADD CONSTRAINT fk_orden_trabajo_equipo_prioridad FOREIGN KEY (id_prioridad) REFERENCES public.prioridad(id_prioridad) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo
+    ADD CONSTRAINT fk_orden_trabajo_equipo_prioridad FOREIGN KEY (id_prioridad) REFERENCES prioridad(id_prioridad) MATCH FULL;
 
 
 --
--- TOC entry 2270 (class 2606 OID 33125)
+-- TOC entry 2272 (class 2606 OID 16742)
 -- Name: orden_trabajo_equipo fk_orden_trabajo_equipo_tipo_mantenimiento; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden_trabajo_equipo
-    ADD CONSTRAINT fk_orden_trabajo_equipo_tipo_mantenimiento FOREIGN KEY (id_tipo_mantenimiento) REFERENCES public.tipo_mantenimiento(id_tipo_mantenimiento) MATCH FULL;
+ALTER TABLE ONLY orden_trabajo_equipo
+    ADD CONSTRAINT fk_orden_trabajo_equipo_tipo_mantenimiento FOREIGN KEY (id_tipo_mantenimiento) REFERENCES tipo_mantenimiento(id_tipo_mantenimiento) MATCH FULL;
 
 
 --
--- TOC entry 2265 (class 2606 OID 33130)
+-- TOC entry 2266 (class 2606 OID 16747)
 -- Name: orden fk_orden_unidad; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.orden
-    ADD CONSTRAINT fk_orden_unidad FOREIGN KEY (id_unidad) REFERENCES public.unidad(id_unidad) MATCH FULL;
+ALTER TABLE ONLY orden
+    ADD CONSTRAINT fk_orden_unidad FOREIGN KEY (id_unidad) REFERENCES unidad(id_unidad) MATCH FULL;
 
 
 --
--- TOC entry 2274 (class 2606 OID 33135)
+-- TOC entry 2275 (class 2606 OID 16752)
 -- Name: parte fk_parte_tipo_parte; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.parte
-    ADD CONSTRAINT fk_parte_tipo_parte FOREIGN KEY (id_tipo_parte) REFERENCES public.tipo_parte(id_tipo_parte) MATCH FULL;
+ALTER TABLE ONLY parte
+    ADD CONSTRAINT fk_parte_tipo_parte FOREIGN KEY (id_tipo_parte) REFERENCES tipo_parte(id_tipo_parte) MATCH FULL;
 
 
 --
--- TOC entry 2275 (class 2606 OID 33140)
+-- TOC entry 2276 (class 2606 OID 16757)
 -- Name: paso fk_paso_procedimiento; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.paso
-    ADD CONSTRAINT fk_paso_procedimiento FOREIGN KEY (id_procedimiento) REFERENCES public.procedimiento(id_procedimiento) MATCH FULL;
+ALTER TABLE ONLY paso
+    ADD CONSTRAINT fk_paso_procedimiento FOREIGN KEY (id_procedimiento) REFERENCES procedimiento(id_procedimiento) MATCH FULL;
 
 
 --
--- TOC entry 2276 (class 2606 OID 33145)
+-- TOC entry 2277 (class 2606 OID 16762)
 -- Name: procedimiento fk_procedimiento_diagnostico; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.procedimiento
-    ADD CONSTRAINT fk_procedimiento_diagnostico FOREIGN KEY (id_diagnostico) REFERENCES public.diagnostico(id_diagnostico) MATCH FULL;
+ALTER TABLE ONLY procedimiento
+    ADD CONSTRAINT fk_procedimiento_diagnostico FOREIGN KEY (id_diagnostico) REFERENCES diagnostico(id_diagnostico) MATCH FULL;
 
 
 --
--- TOC entry 2277 (class 2606 OID 33150)
+-- TOC entry 2278 (class 2606 OID 16767)
 -- Name: responsable fk_responsable_tipo_responsable; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.responsable
-    ADD CONSTRAINT fk_responsable_tipo_responsable FOREIGN KEY (id_tipo_responsable) REFERENCES public.tipo_responsable(id_tipo_responsable) MATCH FULL;
+ALTER TABLE ONLY responsable
+    ADD CONSTRAINT fk_responsable_tipo_responsable FOREIGN KEY (id_tipo_responsable) REFERENCES tipo_responsable(id_tipo_responsable) MATCH FULL;
 
 
 --
--- TOC entry 2278 (class 2606 OID 33155)
+-- TOC entry 2279 (class 2606 OID 16772)
 -- Name: tipo_mantenimiento fk_tipo_mantenimiento_sub_tipo_mantenimiento; Type: FK CONSTRAINT; Schema: public; Owner: mortal2018
 --
 
-ALTER TABLE ONLY public.tipo_mantenimiento
-    ADD CONSTRAINT fk_tipo_mantenimiento_sub_tipo_mantenimiento FOREIGN KEY (id_sub_tipo_mantenimiento) REFERENCES public.sub_tipo_mantenimiento(id_sub_tipo_mantenimiento) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE ONLY tipo_mantenimiento
+    ADD CONSTRAINT fk_tipo_mantenimiento_sub_tipo_mantenimiento FOREIGN KEY (id_sub_tipo_mantenimiento) REFERENCES sub_tipo_mantenimiento(id_sub_tipo_mantenimiento) MATCH FULL ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2018-06-14 21:06:20 UTC
+-- Completed on 2018-06-08 21:52:41 CST
 
 --
 -- PostgreSQL database dump complete
 --
 
+>>>>>>> docker
