@@ -1,19 +1,23 @@
 version: "3"
 services:
-  db:
-    build: ./PostgresAlpine
+  dbpostgres:
+    build: ./postgres
+    image: private:5000/db-postgres
     restart: always
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - vol-dbpostgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-    env_file:
-      - PostgresAlpine/db.env
+    environment:
+     POSTGRES_USER: tpi2018
+     POSTGRES_PASSWORD: tpipass
+     POSTGRES_DB: mantenimiento
   web:
-    build: ./PayaraMicro
+    build: ./payara
+    image: private:5000/web-payara
     ports:
       - "8082:8080"
     depends_on:
-      - db
+      - dbpostgres
 volumes:
-  db-data:
+  vol-debpostgres:
