@@ -47,7 +47,7 @@ public class Orden implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id_orden")
-    private Long idOrden;
+    private Integer idOrden;
     @Column(name = "fecha")
     @Temporal(TemporalType.DATE)
     private Date fecha;
@@ -70,15 +70,15 @@ public class Orden implements Serializable {
     public Orden() {
     }
 
-    public Orden(Long idOrden) {
+    public Orden(Integer idOrden) {
         this.idOrden = idOrden;
     }
 
-    public Long getIdOrden() {
+    public Integer getIdOrden() {
         return idOrden;
     }
 
-    public void setIdOrden(Long idOrden) {
+    public void setIdOrden(Integer idOrden) {
         this.idOrden = idOrden;
     }
 
